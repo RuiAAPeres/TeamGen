@@ -5,43 +5,68 @@ protocol Flow {
     func dismiss(_ animated: Bool)
 }
 
-extension UIWindow: Flow {
-    func present(_ viewController: UIViewController, animated: Bool) {
-        self.rootViewController = viewController
-        self.makeKeyAndVisible()
+private struct ModalFlow: Flow {
+    private let origin: UIViewController
+
+    init(_ viewController: UIViewController) {
+        self.origin = viewController
     }
 
-    func dismiss(animated: Bool) {
-        self.rootViewController = nil
-    }
-}
-
-extension UINavigationController: Flow {
     func present(_ viewController: UIViewController, animated: Bool) {
-        self.pushViewController(viewController, animated: animated)
+        origin.present(viewController, animated: animated, completion: nil)
     }
 
     func dismiss(_ animated: Bool) {
-        self.popViewController(animated: animated)
+        origin.dismiss(animated: animated, completion: nil)
     }
 }
 
-extension UIViewController: Flow {
+private struct NavigationFlow: Flow {
+    private let origin: UINavigationController
+
+    init(_ viewController: UINavigationController) {
+        self.origin = viewController
+    }
+
     func present(_ viewController: UIViewController, animated: Bool) {
-        self.present(viewController, animated: animated, completion: nil)
+        origin.pushViewController(viewController, animated: animated)
     }
 
     func dismiss(_ animated: Bool) {
-        self.dismiss(animated: animated, completion: nil)
+        origin.popViewController(animated: animated)
+    }
+}
+
+private struct WindowFlow: Flow {
+    private let window: UIWindow
+
+    init(_ window: UIWindow) {
+        self.window = window
+    }
+
+    func present(_ viewController: UIViewController, animated: Bool) {
+        window.rootViewController = viewController
+        window.makeKeyAndVisible()
+    }
+
+    func dismiss(_ animated: Bool) {
+        window.rootViewController = nil
+    }
+}
+
+extension UIWindow {
+    var flow: Flow {
+        return WindowFlow(self)
     }
 }
 
 extension UIViewController {
     var modalFlow: Flow {
-        return self
+        return ModalFlow(self)
     }
 
-    var navigationFlow: Flow? {
-        return self.navigationController
+    var navigationFlow: Flow {
+        guard let navigationController = self.navigationController else { return modalFlow }
+        return NavigationFlow(navigationController)
     }
 }

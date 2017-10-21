@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let dependencies = AppDependencies(window: window, bundle: Bundle.main)
         let appFlow = AppFlowController(dependencies: dependencies)
-        appFlow.presentTeams()
+        appFlow.presentTeamsScreen()
 
         return true
     }

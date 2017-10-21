@@ -6,11 +6,11 @@ struct AppFlowController {
 
     init(dependencies: AppDependencies) {
         self.builder = AppFlowController.Builder(dependencies: dependencies)
-        self.flow = dependencies.window
+        self.flow = dependencies.window.flow
     }
 
     func presentTeamsScreen() {
-        builder.makeTeamScreen() |> flow.present
+        builder.makeTeamScreen() |> flip(curry(flow.present))(true)
     }
 }
 
