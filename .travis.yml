@@ -2,3 +2,12 @@ language: objective-c
 osx_image: xcode9
 script:
     - xcodebuild clean test -project TeamGen.xcodeproj -scheme TeamGen -destination "platform=iOS Simulator,name=iPhone 7,OS=11.0" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO -quiet
+
+before_install:
+    - brew update
+    - brew outdated carthage || brew upgrade carthage
+    - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-builds
+
+cache:
+    directories:
+        - Carthage
