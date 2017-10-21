@@ -50,6 +50,9 @@
 		B2EC51861F9BFBBE00783ACB /* pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pipe.swift; sourceTree = "<group>"; };
 		B2EC51891F9BFF9100783ACB /* curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = curry.swift; sourceTree = "<group>"; };
 		B2EC518C1F9BFFA700783ACB /* flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flip.swift; sourceTree = "<group>"; };
+		B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenFlowController.swift; sourceTree = "<group>"; };
+		B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenViewController.swift; sourceTree = "<group>"; };
+		B2EC51991F9C0AEC00783ACB /* GroupsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,7 @@
 		B2DBC5531F9BD1A6000F4AF9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B2EC51961F9C0AEC00783ACB /* GroupsScreen */,
 				B2DBC5541F9BD1A6000F4AF9 /* LaunchScreen */,
 			);
 			path = Screens;
@@ -214,6 +218,16 @@
 				B2EC518C1F9BFFA700783ACB /* flip.swift */,
 			);
 			path = Flip;
+			sourceTree = "<group>";
+		};
+		B2EC51961F9C0AEC00783ACB /* GroupsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */,
+				B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */,
+				B2EC51991F9C0AEC00783ACB /* GroupsScreenViewModel.swift */,
+			);
+			path = GroupsScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
