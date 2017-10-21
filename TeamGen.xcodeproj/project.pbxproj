@@ -13,6 +13,10 @@
 		B2EC51741F9BEA8A00783ACB /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
 		B2EC51751F9BEA8A00783ACB /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51711F9BEA8A00783ACB /* SQLite.framework */; };
 		B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
+		B2EC51781F9BF7B000783ACB /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51771F9BF7B000783ACB /* AppDependencies.swift */; };
+		B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51791F9BF80B00783ACB /* AppFlowController.swift */; };
+		B2EC517F1F9BFACB00783ACB /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC517E1F9BFACB00783ACB /* Flow.swift */; };
+		B2EC51871F9BFBBE00783ACB /* pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51861F9BFBBE00783ACB /* pipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +42,10 @@
 		B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		B2EC51711F9BEA8A00783ACB /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 		B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		B2EC51771F9BF7B000783ACB /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		B2EC51791F9BF80B00783ACB /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
+		B2EC517E1F9BFACB00783ACB /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		B2EC51861F9BFBBE00783ACB /* pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,7 @@
 			children = (
 				B2DBC5511F9BD1A6000F4AF9 /* Application */,
 				B2DBC5531F9BD1A6000F4AF9 /* Screens */,
+				B2EC517B1F9BFAB700783ACB /* Components */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -111,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */,
+				B2EC51771F9BF7B000783ACB /* AppDependencies.swift */,
+				B2EC51791F9BF80B00783ACB /* AppFlowController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -140,6 +151,47 @@
 				B2EC51711F9BEA8A00783ACB /* SQLite.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2EC517B1F9BFAB700783ACB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B2EC51801F9BFB5C00783ACB /* Functional */,
+				B2EC517C1F9BFAB700783ACB /* UI */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B2EC517C1F9BFAB700783ACB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B2EC517D1F9BFAC600783ACB /* Flow */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B2EC517D1F9BFAC600783ACB /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				B2EC517E1F9BFACB00783ACB /* Flow.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		B2EC51801F9BFB5C00783ACB /* Functional */ = {
+			isa = PBXGroup;
+			children = (
+				B2EC51811F9BFB6700783ACB /* Pipe */,
+			);
+			path = Functional;
+			sourceTree = "<group>";
+		};
+		B2EC51811F9BFB6700783ACB /* Pipe */ = {
+			isa = PBXGroup;
+			children = (
+				B2EC51861F9BFBBE00783ACB /* pipe.swift */,
+			);
+			path = Pipe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */,
+				B2EC517F1F9BFACB00783ACB /* Flow.swift in Sources */,
+				B2EC51781F9BF7B000783ACB /* AppDependencies.swift in Sources */,
 				B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */,
+				B2EC51871F9BFBBE00783ACB /* pipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
