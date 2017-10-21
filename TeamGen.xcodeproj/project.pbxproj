@@ -19,9 +19,6 @@
 		B2EC51871F9BFBBE00783ACB /* pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51861F9BFBBE00783ACB /* pipe.swift */; };
 		B2EC518A1F9BFF9100783ACB /* curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51891F9BFF9100783ACB /* curry.swift */; };
 		B2EC518D1F9BFFA700783ACB /* flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC518C1F9BFFA700783ACB /* flip.swift */; };
-		B2EC51911F9C061500783ACB /* TeamsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51901F9C061500783ACB /* TeamsScreenViewController.swift */; };
-		B2EC51931F9C067200783ACB /* TeamsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51921F9C067200783ACB /* TeamsScreenViewModel.swift */; };
-		B2EC51951F9C068F00783ACB /* TeamsScreenFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51941F9C068F00783ACB /* TeamsScreenFlowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,9 +50,9 @@
 		B2EC51861F9BFBBE00783ACB /* pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pipe.swift; sourceTree = "<group>"; };
 		B2EC51891F9BFF9100783ACB /* curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = curry.swift; sourceTree = "<group>"; };
 		B2EC518C1F9BFFA700783ACB /* flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flip.swift; sourceTree = "<group>"; };
-		B2EC51901F9C061500783ACB /* TeamsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsScreenViewController.swift; sourceTree = "<group>"; };
-		B2EC51921F9C067200783ACB /* TeamsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsScreenViewModel.swift; sourceTree = "<group>"; };
-		B2EC51941F9C068F00783ACB /* TeamsScreenFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsScreenFlowController.swift; sourceTree = "<group>"; };
+		B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenFlowController.swift; sourceTree = "<group>"; };
+		B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenViewController.swift; sourceTree = "<group>"; };
+		B2EC51991F9C0AEC00783ACB /* GroupsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +136,7 @@
 		B2DBC5531F9BD1A6000F4AF9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				B2EC518F1F9C060600783ACB /* TeamsScreen */,
+				B2EC51961F9C0AEC00783ACB /* GroupsScreen */,
 				B2DBC5541F9BD1A6000F4AF9 /* LaunchScreen */,
 			);
 			path = Screens;
@@ -223,14 +220,14 @@
 			path = Flip;
 			sourceTree = "<group>";
 		};
-		B2EC518F1F9C060600783ACB /* TeamsScreen */ = {
+		B2EC51961F9C0AEC00783ACB /* GroupsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				B2EC51901F9C061500783ACB /* TeamsScreenViewController.swift */,
-				B2EC51921F9C067200783ACB /* TeamsScreenViewModel.swift */,
-				B2EC51941F9C068F00783ACB /* TeamsScreenFlowController.swift */,
+				B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */,
+				B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */,
+				B2EC51991F9C0AEC00783ACB /* GroupsScreenViewModel.swift */,
 			);
-			path = TeamsScreen;
+			path = GroupsScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,12 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2EC51951F9C068F00783ACB /* TeamsScreenFlowController.swift in Sources */,
 				B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */,
 				B2EC518A1F9BFF9100783ACB /* curry.swift in Sources */,
 				B2EC517F1F9BFACB00783ACB /* Flow.swift in Sources */,
-				B2EC51911F9C061500783ACB /* TeamsScreenViewController.swift in Sources */,
-				B2EC51931F9C067200783ACB /* TeamsScreenViewModel.swift in Sources */,
 				B2EC51781F9BF7B000783ACB /* AppDependencies.swift in Sources */,
 				B2EC518D1F9BFFA700783ACB /* flip.swift in Sources */,
 				B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */,
