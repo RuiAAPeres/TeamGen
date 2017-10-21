@@ -1,0 +1,4 @@
+github "ReactiveCocoa/ReactiveCocoa" "7.0.0-alpha.2"
+github "ReactiveCocoa/ReactiveSwift" "3.0.0-alpha.1"
+github "antitypical/Result" "3.2.4"
+github "stephencelis/SQLite.swift" "0.11.4"

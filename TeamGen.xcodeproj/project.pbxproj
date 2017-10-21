@@ -9,7 +9,24 @@
 /* Begin PBXBuildFile section */
 		B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */; };
 		B2DBC5571F9BD1D4000F4AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */; };
+		B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
+		B2EC51741F9BEA8A00783ACB /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
+		B2EC51751F9BEA8A00783ACB /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51711F9BEA8A00783ACB /* SQLite.framework */; };
+		B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B2DBC5611F9BE7E5000F4AF9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B2DBC5371F9BD0F0000F4AF9 /* TeamGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -17,6 +34,10 @@
 		B2DBC54F1F9BD1A6000F4AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B2EC516F1F9BEA8A00783ACB /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		B2EC51711F9BEA8A00783ACB /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
+		B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,6 +45,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */,
+				B2EC51741F9BEA8A00783ACB /* ReactiveCocoa.framework in Frameworks */,
+				B2EC51751F9BEA8A00783ACB /* SQLite.framework in Frameworks */,
+				B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +60,7 @@
 			children = (
 				B2DBC5391F9BD0F0000F4AF9 /* TeamGen */,
 				B2DBC5381F9BD0F0000F4AF9 /* Products */,
+				B2EC516E1F9BEA8A00783ACB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +131,17 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		B2EC516E1F9BEA8A00783ACB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */,
+				B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */,
+				B2EC516F1F9BEA8A00783ACB /* Result.framework */,
+				B2EC51711F9BEA8A00783ACB /* SQLite.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,6 +152,8 @@
 				B2DBC5331F9BD0F0000F4AF9 /* Sources */,
 				B2DBC5341F9BD0F0000F4AF9 /* Frameworks */,
 				B2DBC5351F9BD0F0000F4AF9 /* Resources */,
+				B2DBC5611F9BE7E5000F4AF9 /* Embed Frameworks */,
+				B2EC516D1F9BE8A500783ACB /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -169,6 +208,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B2EC516D1F9BE8A500783ACB /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B2DBC5331F9BD0F0000F4AF9 /* Sources */ = {
@@ -294,6 +354,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "TeamGen/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peres.TeamGen;
@@ -308,6 +372,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "TeamGen/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peres.TeamGen;
