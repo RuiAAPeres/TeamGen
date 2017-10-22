@@ -23,8 +23,55 @@ struct DatabaseMaker: DatabaseMakerProtocol {
     }
 
     func makeDatabase() -> SignalProducer<Connection, NoError> {
-        return SignalProducer { observer, _ in
-            defer { observer.sendCompleted() }
+        return SignalProducer {[pathToDatabase] observer, _ in
+            makeDataBase(withPath: pathToDatabase)
+            observer.sendCompleted()
         }
     }
 }
+
+private func makeDataBase(withPath pathToDatabase: String) {
+
+    let database = try! Connection(pathToDatabase)
+
+    let groups = Table("groups")
+
+    let groupId = Expression<Int64>("id")
+    let groupName = Expression<String>("name")
+    let groupDescription = Expression<String>("description")
+
+    let players = Table("players")
+
+    let playerId = Expression<Int64>("id")
+    let playerName = Expression<String>("name")
+    let playerGroupForeign = Expression<Int64>("group")
+
+    let skills = Table("skills")
+
+    let skillId = Expression<Int64>("id")
+    let skillName = Expression<String>("name")
+    let skillValue = Expression<Double>("value")
+    let skillPlayerForeign = Expression<Int64>("player")
+    let skillGroupForeign = Expression<Int64>("group")
+
+    try! database.run(groups.create(ifNotExists: true) { table in
+        table.column(groupId, primaryKey: .autoincrement)
+        table.column(groupName, unique: true)
+        table.column(groupDescription, defaultValue: "")
+    })
+
+    try! database.run(players.create(ifNotExists: true) { table in
+        table.column(playerId, primaryKey: .autoincrement)
+        table.column(playerName)
+        table.foreignKey(playerGroupForeign, references: groups, groupId, delete: .setNull)
+    })
+
+    try! database.run(skills.create(ifNotExists: true) { table in
+        table.column(skillId, primaryKey: .autoincrement)
+        table.column(skillName)
+        table.column(skillValue)
+        table.foreignKey(skillPlayerForeign, references: players, playerId, delete: .setNull)
+        table.foreignKey(skillGroupForeign, references: groups, groupId, delete: .setNull)
+    })
+}
+
