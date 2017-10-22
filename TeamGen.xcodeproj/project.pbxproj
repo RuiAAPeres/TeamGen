@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B202C18B1F9C1A670018F95C /* GroupsBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202C18A1F9C1A670018F95C /* GroupsBusinessController.swift */; };
 		B202C18D1F9C20560018F95C /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202C18C1F9C20560018F95C /* AppViewModel.swift */; };
+		B25DFEA21F9D300300F26FB9 /* DatabaseMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25DFEA11F9D300300F26FB9 /* DatabaseMaker.swift */; };
 		B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */; };
 		B2DBC5571F9BD1D4000F4AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */; };
 		B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		B202C18A1F9C1A670018F95C /* GroupsBusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsBusinessController.swift; sourceTree = "<group>"; };
 		B202C18C1F9C20560018F95C /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		B25DFEA11F9D300300F26FB9 /* DatabaseMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseMaker.swift; sourceTree = "<group>"; };
 		B2DBC5371F9BD0F0000F4AF9 /* TeamGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DBC54D1F9BD1A6000F4AF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2DBC54F1F9BD1A6000F4AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				B2EC51771F9BF7B000783ACB /* AppDependencies.swift */,
 				B2EC51791F9BF80B00783ACB /* AppFlowController.swift */,
 				B202C18C1F9C20560018F95C /* AppViewModel.swift */,
+				B25DFEA11F9D300300F26FB9 /* DatabaseMaker.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				B2EC51AF1F9C14AE00783ACB /* Flow.swift in Sources */,
 				B202C18B1F9C1A670018F95C /* GroupsBusinessController.swift in Sources */,
 				B2EC51A01F9C102F00783ACB /* Skill.swift in Sources */,
+				B25DFEA21F9D300300F26FB9 /* DatabaseMaker.swift in Sources */,
 				B2EC51B21F9C14BB00783ACB /* pipe.swift in Sources */,
 				B2EC519E1F9C0FC500783ACB /* Player.swift in Sources */,
 				B2EC51B41F9C155000783ACB /* GroupsScreenFlowController.swift in Sources */,

@@ -1,16 +1,33 @@
 import UIKit
 import SQLite
+import ReactiveSwift
+import enum Result.NoError
+
+typealias AppDependenciesMaker = (Connection) -> AppDependencies
 
 struct AppFlowController {
     private let builder: Builder
     private let flow: Flow
 
-    init(dependencies: AppDependencies) {
-        self.builder = AppFlowController.Builder(dependencies: dependencies)
-        self.flow = dependencies.window.flow
+    init(flow: Flow, maker : @escaping AppDependenciesMaker ) {
+        self.builder = AppFlowController.Builder(maker: maker)
+        self.flow = flow
     }
 
-    func presentGroupsScreen(connection: Connection) {
+    func observe(state: Signal<AppViewModel.State, NoError>) {
+        state.observe(on: UIScheduler())
+            .take(last: 1)
+            .observeValues { value in
+                switch value {
+                case .initial:
+                    break
+                case let .loaded(connection):
+                    self.presentGroupsScreen(connection: connection)
+                }
+        }
+    }
+
+    private func presentGroupsScreen(connection: Connection) {
         builder.makeGroupsScreen(with: connection)
             |> flip(curry(flow.present))(true)
     }
@@ -18,10 +35,10 @@ struct AppFlowController {
 
 extension AppFlowController {
     struct Builder {
-        private let dependencies: AppDependencies
+        private let maker: AppDependenciesMaker
 
-        init(dependencies: AppDependencies) {
-            self.dependencies = dependencies
+        init(maker: @escaping AppDependenciesMaker) {
+            self.maker = maker
         }
 
         func makeGroupsScreen(with connection: Connection) -> UIViewController {

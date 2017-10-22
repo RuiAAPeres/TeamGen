@@ -10,8 +10,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
         -> Bool {
 
-        let dependencies = AppDependencies(window: window, bundle: Bundle.main)
-        let appFlow = AppFlowController(dependencies: dependencies)
+        let dependenciesCreator = curry(AppDependencies.init)(window)(Bundle.main)
+        let flowController = AppFlowController(flow: window.flow, maker: dependenciesCreator)
+        let viewModel = DatabaseMaker() |> AppViewModel.init
+
+        flowController.observe(state: viewModel.state.signal)
 
         return true
     }

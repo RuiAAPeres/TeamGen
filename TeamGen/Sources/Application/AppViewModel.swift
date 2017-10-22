@@ -1,20 +1,33 @@
 import ReactiveSwift
 import ReactiveFeedback
+import enum Result.NoError
 import SQLite
 
 struct AppViewModel {
 
     let state: Property<State>
 
-    init() {
+    init(maker: DatabaseMakerProtocol) {
+
+        let dataBaseCreationFeedback = makeDataBaseCreationFeedback(with: maker)
+
         self.state = Property.init(initial: .initial,
                                    reduce: AppViewModel.reducer,
-                                   feedbacks: [])
+                                   feedbacks: [dataBaseCreationFeedback])
     }
+}
 
-    static func makeFeedbacks() -> [Feedback<State, Event>] {
-        return []
-    }
+private func makeDataBaseCreationFeedback(with maker: DatabaseMakerProtocol)
+    -> Feedback<AppViewModel.State, AppViewModel.Event> {
+        return Feedback { state -> SignalProducer<AppViewModel.Event, NoError> in
+            switch state {
+            case .initial:
+                return maker.makeDatabase()
+                    .map(AppViewModel.Event.load)
+            case .loaded:
+                return .empty
+            }
+        }
 }
 
 extension AppViewModel {
