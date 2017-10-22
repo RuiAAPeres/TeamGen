@@ -1,4 +1,4 @@
-struct Skill {
+struct Skill: Codable {
     let name: String
-    let value: Float
+    let value: Double
 }

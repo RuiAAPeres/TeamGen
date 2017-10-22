@@ -5,7 +5,7 @@ struct GroupsScreenViewModel: ViewLifeCycleObservable {
     let state: Property<State>
     let viewLifecycle: MutableProperty<ViewLifeCycle>
 
-    init() {
+    init(groupsBusinessController: GroupsBusinessControllerProtocol) {
         state = Property.init(initial: .loading,
                               reduce: GroupsScreenViewModel.reducer,
                               feedbacks: [])
@@ -33,7 +33,7 @@ extension GroupsScreenViewModel {
                         event: Event)
         -> State {
             switch (state, event) {
-            case (.initial, .startLoadingGroups):
+            case (_, .startLoadingGroups):
                 return .loading
             case (_, let .loaded(groups)) where groups.count == 0:
                 return .empty

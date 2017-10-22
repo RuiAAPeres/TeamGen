@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B202C18B1F9C1A670018F95C /* GroupsBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202C18A1F9C1A670018F95C /* GroupsBusinessController.swift */; };
 		B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */; };
 		B2DBC5571F9BD1D4000F4AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */; };
 		B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
@@ -45,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B202C18A1F9C1A670018F95C /* GroupsBusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsBusinessController.swift; sourceTree = "<group>"; };
 		B2DBC5371F9BD0F0000F4AF9 /* TeamGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DBC54D1F9BD1A6000F4AF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2DBC54F1F9BD1A6000F4AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */,
 				B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */,
 				B2EC51991F9C0AEC00783ACB /* GroupsScreenViewModel.swift */,
+				B202C18A1F9C1A670018F95C /* GroupsBusinessController.swift */,
 			);
 			path = GroupsScreen;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				B2EC51B51F9C155000783ACB /* GroupsScreenViewController.swift in Sources */,
 				B2EC51B01F9C14BB00783ACB /* curry.swift in Sources */,
 				B2EC51AF1F9C14AE00783ACB /* Flow.swift in Sources */,
+				B202C18B1F9C1A670018F95C /* GroupsBusinessController.swift in Sources */,
 				B2EC51A01F9C102F00783ACB /* Skill.swift in Sources */,
 				B2EC51A61F9C135200783ACB /* Property+System.swift in Sources */,
 				B2EC51B21F9C14BB00783ACB /* pipe.swift in Sources */,
