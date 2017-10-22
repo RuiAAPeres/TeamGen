@@ -1,4 +1,5 @@
 import UIKit
+import SQLite
 
 struct AppFlowController {
     private let builder: Builder
@@ -9,8 +10,9 @@ struct AppFlowController {
         self.flow = dependencies.window.flow
     }
 
-    func presentTeamsScreen() {
-        builder.makeTeamScreen() |> flip(curry(flow.present))(true)
+    func presentGroupsScreen(connection: Connection) {
+        builder.makeGroupsScreen(with: connection)
+            |> flip(curry(flow.present))(true)
     }
 }
 
@@ -22,7 +24,7 @@ extension AppFlowController {
             self.dependencies = dependencies
         }
 
-        func makeTeamScreen() -> UIViewController {
+        func makeGroupsScreen(with connection: Connection) -> UIViewController {
             return UIViewController()
         }
     }

@@ -1,4 +1,5 @@
-github "ReactiveCocoa/ReactiveCocoa" "7.0.0-alpha.2"
-github "ReactiveCocoa/ReactiveSwift" "3.0.0-alpha.1"
+github "Babylonpartners/ReactiveFeedback" "3302294c992279cc31bef825b004fce2d15eb7b5"
+github "ReactiveCocoa/ReactiveCocoa" "6.0.2"
+github "ReactiveCocoa/ReactiveSwift" "2.0.1"
 github "antitypical/Result" "3.2.4"
 github "stephencelis/SQLite.swift" "0.11.4"
