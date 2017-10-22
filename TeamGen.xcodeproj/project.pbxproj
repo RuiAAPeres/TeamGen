@@ -15,10 +15,20 @@
 		B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
 		B2EC51781F9BF7B000783ACB /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51771F9BF7B000783ACB /* AppDependencies.swift */; };
 		B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51791F9BF80B00783ACB /* AppFlowController.swift */; };
-		B2EC517F1F9BFACB00783ACB /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC517E1F9BFACB00783ACB /* Flow.swift */; };
-		B2EC51871F9BFBBE00783ACB /* pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51861F9BFBBE00783ACB /* pipe.swift */; };
-		B2EC518A1F9BFF9100783ACB /* curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51891F9BFF9100783ACB /* curry.swift */; };
-		B2EC518D1F9BFFA700783ACB /* flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC518C1F9BFFA700783ACB /* flip.swift */; };
+		B2EC519C1F9C0FA500783ACB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC519B1F9C0FA500783ACB /* Group.swift */; };
+		B2EC519E1F9C0FC500783ACB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC519D1F9C0FC500783ACB /* Player.swift */; };
+		B2EC51A01F9C102F00783ACB /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC519F1F9C102F00783ACB /* Skill.swift */; };
+		B2EC51A41F9C132E00783ACB /* SignalProducer+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51A31F9C132E00783ACB /* SignalProducer+System.swift */; };
+		B2EC51A61F9C135200783ACB /* Property+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51A51F9C135200783ACB /* Property+System.swift */; };
+		B2EC51A81F9C136D00783ACB /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51A71F9C136D00783ACB /* Feedback.swift */; };
+		B2EC51AE1F9C143F00783ACB /* ViewModel+ViewLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51AD1F9C143F00783ACB /* ViewModel+ViewLifecycle.swift */; };
+		B2EC51AF1F9C14AE00783ACB /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51A91F9C140C00783ACB /* Flow.swift */; };
+		B2EC51B01F9C14BB00783ACB /* curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51AC1F9C142E00783ACB /* curry.swift */; };
+		B2EC51B11F9C14BB00783ACB /* flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51AB1F9C142E00783ACB /* flip.swift */; };
+		B2EC51B21F9C14BB00783ACB /* pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51AA1F9C142E00783ACB /* pipe.swift */; };
+		B2EC51B31F9C154B00783ACB /* GroupsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51991F9C0AEC00783ACB /* GroupsScreenViewModel.swift */; };
+		B2EC51B41F9C155000783ACB /* GroupsScreenFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */; };
+		B2EC51B51F9C155000783ACB /* GroupsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,13 +56,20 @@
 		B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		B2EC51771F9BF7B000783ACB /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		B2EC51791F9BF80B00783ACB /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
-		B2EC517E1F9BFACB00783ACB /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
-		B2EC51861F9BFBBE00783ACB /* pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pipe.swift; sourceTree = "<group>"; };
-		B2EC51891F9BFF9100783ACB /* curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = curry.swift; sourceTree = "<group>"; };
-		B2EC518C1F9BFFA700783ACB /* flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flip.swift; sourceTree = "<group>"; };
 		B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenFlowController.swift; sourceTree = "<group>"; };
 		B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenViewController.swift; sourceTree = "<group>"; };
 		B2EC51991F9C0AEC00783ACB /* GroupsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenViewModel.swift; sourceTree = "<group>"; };
+		B2EC519B1F9C0FA500783ACB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		B2EC519D1F9C0FC500783ACB /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		B2EC519F1F9C102F00783ACB /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		B2EC51A31F9C132E00783ACB /* SignalProducer+System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignalProducer+System.swift"; sourceTree = "<group>"; };
+		B2EC51A51F9C135200783ACB /* Property+System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+System.swift"; sourceTree = "<group>"; };
+		B2EC51A71F9C136D00783ACB /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		B2EC51A91F9C140C00783ACB /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		B2EC51AA1F9C142E00783ACB /* pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pipe.swift; sourceTree = "<group>"; };
+		B2EC51AB1F9C142E00783ACB /* flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flip.swift; sourceTree = "<group>"; };
+		B2EC51AC1F9C142E00783ACB /* curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = curry.swift; sourceTree = "<group>"; };
+		B2EC51AD1F9C143F00783ACB /* ViewModel+ViewLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+ViewLifecycle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +110,7 @@
 				B2DBC5501F9BD1A6000F4AF9 /* Sources */,
 				B2DBC54C1F9BD1A6000F4AF9 /* Resources */,
 				B2DBC54E1F9BD1A6000F4AF9 /* Supporting Files */,
+				B2EC51A11F9C12DB00783ACB /* 3rd party libs [TEMP] */,
 			);
 			path = TeamGen;
 			sourceTree = "<group>";
@@ -116,6 +134,7 @@
 		B2DBC5501F9BD1A6000F4AF9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B2EC519A1F9C0F9B00783ACB /* Models */,
 				B2DBC5511F9BD1A6000F4AF9 /* Application */,
 				B2DBC5531F9BD1A6000F4AF9 /* Screens */,
 				B2EC517B1F9BFAB700783ACB /* Components */,
@@ -173,51 +192,20 @@
 		B2EC517C1F9BFAB700783ACB /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B2EC517D1F9BFAC600783ACB /* Flow */,
+				B2EC51A91F9C140C00783ACB /* Flow.swift */,
+				B2EC51AD1F9C143F00783ACB /* ViewModel+ViewLifecycle.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		B2EC517D1F9BFAC600783ACB /* Flow */ = {
-			isa = PBXGroup;
-			children = (
-				B2EC517E1F9BFACB00783ACB /* Flow.swift */,
-			);
-			path = Flow;
 			sourceTree = "<group>";
 		};
 		B2EC51801F9BFB5C00783ACB /* Functional */ = {
 			isa = PBXGroup;
 			children = (
-				B2EC518B1F9BFFA100783ACB /* Flip */,
-				B2EC51881F9BFF6900783ACB /* Curry */,
-				B2EC51811F9BFB6700783ACB /* Pipe */,
+				B2EC51AC1F9C142E00783ACB /* curry.swift */,
+				B2EC51AB1F9C142E00783ACB /* flip.swift */,
+				B2EC51AA1F9C142E00783ACB /* pipe.swift */,
 			);
 			path = Functional;
-			sourceTree = "<group>";
-		};
-		B2EC51811F9BFB6700783ACB /* Pipe */ = {
-			isa = PBXGroup;
-			children = (
-				B2EC51861F9BFBBE00783ACB /* pipe.swift */,
-			);
-			path = Pipe;
-			sourceTree = "<group>";
-		};
-		B2EC51881F9BFF6900783ACB /* Curry */ = {
-			isa = PBXGroup;
-			children = (
-				B2EC51891F9BFF9100783ACB /* curry.swift */,
-			);
-			path = Curry;
-			sourceTree = "<group>";
-		};
-		B2EC518B1F9BFFA100783ACB /* Flip */ = {
-			isa = PBXGroup;
-			children = (
-				B2EC518C1F9BFFA700783ACB /* flip.swift */,
-			);
-			path = Flip;
 			sourceTree = "<group>";
 		};
 		B2EC51961F9C0AEC00783ACB /* GroupsScreen */ = {
@@ -228,6 +216,34 @@
 				B2EC51991F9C0AEC00783ACB /* GroupsScreenViewModel.swift */,
 			);
 			path = GroupsScreen;
+			sourceTree = "<group>";
+		};
+		B2EC519A1F9C0F9B00783ACB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B2EC519B1F9C0FA500783ACB /* Group.swift */,
+				B2EC519D1F9C0FC500783ACB /* Player.swift */,
+				B2EC519F1F9C102F00783ACB /* Skill.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B2EC51A11F9C12DB00783ACB /* 3rd party libs [TEMP] */ = {
+			isa = PBXGroup;
+			children = (
+				B2EC51A21F9C131E00783ACB /* ReactiveFeedback */,
+			);
+			path = "3rd party libs [TEMP]";
+			sourceTree = "<group>";
+		};
+		B2EC51A21F9C131E00783ACB /* ReactiveFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				B2EC51A31F9C132E00783ACB /* SignalProducer+System.swift */,
+				B2EC51A51F9C135200783ACB /* Property+System.swift */,
+				B2EC51A71F9C136D00783ACB /* Feedback.swift */,
+			);
+			path = ReactiveFeedback;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,13 +339,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2EC51A41F9C132E00783ACB /* SignalProducer+System.swift in Sources */,
 				B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */,
-				B2EC518A1F9BFF9100783ACB /* curry.swift in Sources */,
-				B2EC517F1F9BFACB00783ACB /* Flow.swift in Sources */,
+				B2EC51A81F9C136D00783ACB /* Feedback.swift in Sources */,
+				B2EC519C1F9C0FA500783ACB /* Group.swift in Sources */,
+				B2EC51B31F9C154B00783ACB /* GroupsScreenViewModel.swift in Sources */,
 				B2EC51781F9BF7B000783ACB /* AppDependencies.swift in Sources */,
-				B2EC518D1F9BFFA700783ACB /* flip.swift in Sources */,
 				B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */,
-				B2EC51871F9BFBBE00783ACB /* pipe.swift in Sources */,
+				B2EC51AE1F9C143F00783ACB /* ViewModel+ViewLifecycle.swift in Sources */,
+				B2EC51B51F9C155000783ACB /* GroupsScreenViewController.swift in Sources */,
+				B2EC51B01F9C14BB00783ACB /* curry.swift in Sources */,
+				B2EC51AF1F9C14AE00783ACB /* Flow.swift in Sources */,
+				B2EC51A01F9C102F00783ACB /* Skill.swift in Sources */,
+				B2EC51A61F9C135200783ACB /* Property+System.swift in Sources */,
+				B2EC51B21F9C14BB00783ACB /* pipe.swift in Sources */,
+				B2EC519E1F9C0FC500783ACB /* Player.swift in Sources */,
+				B2EC51B41F9C155000783ACB /* GroupsScreenFlowController.swift in Sources */,
+				B2EC51B11F9C14BB00783ACB /* flip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
