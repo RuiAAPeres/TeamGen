@@ -1,4 +1,4 @@
-github "Babylonpartners/ReactiveFeedback" "3302294c992279cc31bef825b004fce2d15eb7b5"
+github "Babylonpartners/ReactiveFeedback" "0.1.1"
 github "ReactiveCocoa/ReactiveCocoa" "6.0.2"
 github "ReactiveCocoa/ReactiveSwift" "2.0.1"
 github "antitypical/Result" "3.2.4"
