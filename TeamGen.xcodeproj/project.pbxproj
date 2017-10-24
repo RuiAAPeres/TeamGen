@@ -260,7 +260,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = peres;
+				ORGANIZATIONNAME = "Emergency Avocado";
 				TargetAttributes = {
 					B2DBC5361F9BD0F0000F4AF9 = {
 						CreatedOnToolsVersion = 9.0;
@@ -464,7 +464,7 @@
 				);
 				INFOPLIST_FILE = "TeamGen/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peres.TeamGen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.emergencyavocado.TeamGen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -482,7 +482,7 @@
 				);
 				INFOPLIST_FILE = "TeamGen/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peres.TeamGen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.emergencyavocado.TeamGen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
