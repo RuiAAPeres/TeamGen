@@ -34,25 +34,32 @@ private func makeDataBase(withPath pathToDatabase: String) {
 
     let database = try! Connection(pathToDatabase)
 
-    let groups = Table("groups")
+    let groups = Table("Groups")
 
     let groupId = Expression<Int64>("id")
     let groupName = Expression<String>("name")
     let groupDescription = Expression<String>("description")
 
-    let players = Table("players")
+    let players = Table("Players")
 
     let playerId = Expression<Int64>("id")
     let playerName = Expression<String>("name")
     let playerGroupForeign = Expression<Int64>("group")
 
-    let skills = Table("skills")
+    let skillSpecs = Table("SkillSpecs")
+
+    let skillSpecId = Expression<Int64>("id")
+    let skillsSpecName = Expression<String>("name")
+    let skillSpecMinValue = Expression<Double>("minValue")
+    let skillSpecMaxValue = Expression<Double>("minValue")
+    let skillSpecGroupForeign = Expression<Int64>("group")
+
+    let skills = Table("Skills")
 
     let skillId = Expression<Int64>("id")
-    let skillName = Expression<String>("name")
     let skillValue = Expression<Double>("value")
+    let skillSkillSpecForeign = Expression<Int64>("skillSpec")
     let skillPlayerForeign = Expression<Int64>("player")
-    let skillGroupForeign = Expression<Int64>("group")
 
     try! database.run(groups.create(ifNotExists: true) { table in
         table.column(groupId, primaryKey: .autoincrement)
@@ -66,12 +73,19 @@ private func makeDataBase(withPath pathToDatabase: String) {
         table.foreignKey(playerGroupForeign, references: groups, groupId, delete: .setNull)
     })
 
+    try! database.run(skillSpecs.create(ifNotExists: true) { table in
+        table.column(skillSpecId, primaryKey: .autoincrement)
+        table.column(skillsSpecName)
+        table.column(skillSpecMinValue)
+        table.column(skillSpecMaxValue)
+        table.foreignKey(skillSpecGroupForeign, references: groups, groupId, delete: .setNull)
+    })
+
+
     try! database.run(skills.create(ifNotExists: true) { table in
         table.column(skillId, primaryKey: .autoincrement)
-        table.column(skillName)
         table.column(skillValue)
+        table.foreignKey(skillSkillSpecForeign, references: skillSpecs, skillSpecId, delete: .setNull)
         table.foreignKey(skillPlayerForeign, references: players, playerId, delete: .setNull)
-        table.foreignKey(skillGroupForeign, references: groups, groupId, delete: .setNull)
     })
 }
-
