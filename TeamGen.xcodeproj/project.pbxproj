@@ -12,6 +12,10 @@
 		B25DFEA21F9D300300F26FB9 /* DatabaseMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25DFEA11F9D300300F26FB9 /* DatabaseMaker.swift */; };
 		B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */; };
 		B2DBC5571F9BD1D4000F4AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */; };
+		B2E3248A1F9F99650083A1F9 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324881F9F99650083A1F9 /* Nimble.framework */; };
+		B2E3248B1F9F99650083A1F9 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324891F9F99650083A1F9 /* Quick.framework */; };
+		B2E3249C1F9F9B800083A1F9 /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
+		B2E324A11F9F9BFD0083A1F9 /* TeamGenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E3249E1F9F9BFC0083A1F9 /* TeamGenTests.swift */; };
 		B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
 		B2EC51741F9BEA8A00783ACB /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
 		B2EC51751F9BEA8A00783ACB /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51711F9BEA8A00783ACB /* SQLite.framework */; };
@@ -30,6 +34,16 @@
 		B2EC51B41F9C155000783ACB /* GroupsScreenFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */; };
 		B2EC51B51F9C155000783ACB /* GroupsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B2E324831F9F988E0083A1F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2DBC52F1F9BD0F0000F4AF9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2DBC5361F9BD0F0000F4AF9;
+			remoteInfo = TeamGen;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		B2DBC5611F9BE7E5000F4AF9 /* Embed Frameworks */ = {
@@ -53,6 +67,12 @@
 		B2DBC54F1F9BD1A6000F4AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B2E3247E1F9F988D0083A1F9 /* TeamGenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamGenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2E324881F9F99650083A1F9 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		B2E324891F9F99650083A1F9 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveFeedback.framework; path = Carthage/Build/iOS/ReactiveFeedback.framework; sourceTree = "<group>"; };
+		B2E3249E1F9F9BFC0083A1F9 /* TeamGenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamGenTests.swift; sourceTree = "<group>"; };
+		B2E324A01F9F9BFD0083A1F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2EC516F1F9BEA8A00783ACB /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		B2EC51711F9BEA8A00783ACB /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
@@ -77,10 +97,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E3249C1F9F9B800083A1F9 /* ReactiveFeedback.framework in Frameworks */,
 				B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */,
 				B2EC51741F9BEA8A00783ACB /* ReactiveCocoa.framework in Frameworks */,
 				B2EC51751F9BEA8A00783ACB /* SQLite.framework in Frameworks */,
 				B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E3247B1F9F988D0083A1F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2E3248A1F9F99650083A1F9 /* Nimble.framework in Frameworks */,
+				B2E3248B1F9F99650083A1F9 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				B2DBC5391F9BD0F0000F4AF9 /* TeamGen */,
+				B2E3247F1F9F988E0083A1F9 /* TeamGenTests */,
 				B2DBC5381F9BD0F0000F4AF9 /* Products */,
 				B2EC516E1F9BEA8A00783ACB /* Frameworks */,
 			);
@@ -100,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				B2DBC5371F9BD0F0000F4AF9 /* TeamGen.app */,
+				B2E3247E1F9F988D0083A1F9 /* TeamGenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,9 +202,37 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		B2E3247F1F9F988E0083A1F9 /* TeamGenTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2E3249D1F9F9BFC0083A1F9 /* Tests */,
+				B2E3249F1F9F9BFD0083A1F9 /* Supporting Files */,
+			);
+			path = TeamGenTests;
+			sourceTree = "<group>";
+		};
+		B2E3249D1F9F9BFC0083A1F9 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B2E3249E1F9F9BFC0083A1F9 /* TeamGenTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		B2E3249F1F9F9BFD0083A1F9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2E324A01F9F9BFD0083A1F9 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B2EC516E1F9BEA8A00783ACB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */,
+				B2E324881F9F99650083A1F9 /* Nimble.framework */,
+				B2E324891F9F99650083A1F9 /* Quick.framework */,
 				B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */,
 				B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */,
 				B2EC516F1F9BEA8A00783ACB /* Result.framework */,
@@ -252,6 +312,25 @@
 			productReference = B2DBC5371F9BD0F0000F4AF9 /* TeamGen.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B2E3247D1F9F988D0083A1F9 /* TeamGenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2E324851F9F988E0083A1F9 /* Build configuration list for PBXNativeTarget "TeamGenTests" */;
+			buildPhases = (
+				B2E3247A1F9F988D0083A1F9 /* Sources */,
+				B2E3247B1F9F988D0083A1F9 /* Frameworks */,
+				B2E3247C1F9F988D0083A1F9 /* Resources */,
+				B2E3249B1F9F9B410083A1F9 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2E324841F9F988E0083A1F9 /* PBXTargetDependency */,
+			);
+			name = TeamGenTests;
+			productName = TeamGenTests;
+			productReference = B2E3247E1F9F988D0083A1F9 /* TeamGenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -265,6 +344,11 @@
 					B2DBC5361F9BD0F0000F4AF9 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+					};
+					B2E3247D1F9F988D0083A1F9 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B2DBC5361F9BD0F0000F4AF9;
 					};
 				};
 			};
@@ -282,6 +366,7 @@
 			projectRoot = "";
 			targets = (
 				B2DBC5361F9BD0F0000F4AF9 /* TeamGen */,
+				B2E3247D1F9F988D0083A1F9 /* TeamGenTests */,
 			);
 		};
 /* End PBXProject section */
@@ -295,9 +380,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2E3247C1F9F988D0083A1F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B2E3249B1F9F9B410083A1F9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		B2EC516D1F9BE8A500783ACB /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -308,6 +415,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveFeedback.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -343,7 +451,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2E3247A1F9F988D0083A1F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2E324A11F9F9BFD0083A1F9 /* TeamGenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B2E324841F9F988E0083A1F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2DBC5361F9BD0F0000F4AF9 /* TeamGen */;
+			targetProxy = B2E324831F9F988E0083A1F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B2DBC5471F9BD0F0000F4AF9 /* Debug */ = {
@@ -489,6 +613,44 @@
 			};
 			name = Release;
 		};
+		B2E324861F9F988E0083A1F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "TeamGenTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.emergencyavocado.TeamGenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamGen.app/TeamGen";
+			};
+			name = Debug;
+		};
+		B2E324871F9F988E0083A1F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "TeamGenTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.emergencyavocado.TeamGenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamGen.app/TeamGen";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -506,6 +668,15 @@
 			buildConfigurations = (
 				B2DBC54A1F9BD0F0000F4AF9 /* Debug */,
 				B2DBC54B1F9BD0F0000F4AF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2E324851F9F988E0083A1F9 /* Build configuration list for PBXNativeTarget "TeamGenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2E324861F9F988E0083A1F9 /* Debug */,
+				B2E324871F9F988E0083A1F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
