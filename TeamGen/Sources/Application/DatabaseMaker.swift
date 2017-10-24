@@ -24,13 +24,13 @@ struct DatabaseMaker: DatabaseMakerProtocol {
 
     func makeDatabase() -> SignalProducer<Connection, NoError> {
         return SignalProducer {[pathToDatabase] observer, _ in
-            makeDataBase(withPath: pathToDatabase)
+            makeDataBase(withPath: pathToDatabase) |> observer.send(value:)
             observer.sendCompleted()
         }
     }
 }
 
-private func makeDataBase(withPath pathToDatabase: String) {
+private func makeDataBase(withPath pathToDatabase: String) -> Connection {
 
     let database = try! Connection(pathToDatabase)
 
@@ -51,7 +51,7 @@ private func makeDataBase(withPath pathToDatabase: String) {
     let skillSpecId = Expression<Int64>("id")
     let skillsSpecName = Expression<String>("name")
     let skillSpecMinValue = Expression<Double>("minValue")
-    let skillSpecMaxValue = Expression<Double>("minValue")
+    let skillSpecMaxValue = Expression<Double>("maxValue")
     let skillSpecGroupForeign = Expression<Int64>("group")
 
     let skills = Table("Skills")
@@ -70,6 +70,7 @@ private func makeDataBase(withPath pathToDatabase: String) {
     try! database.run(players.create(ifNotExists: true) { table in
         table.column(playerId, primaryKey: .autoincrement)
         table.column(playerName)
+        table.column(playerGroupForeign)
         table.foreignKey(playerGroupForeign, references: groups, groupId, delete: .setNull)
     })
 
@@ -78,6 +79,7 @@ private func makeDataBase(withPath pathToDatabase: String) {
         table.column(skillsSpecName)
         table.column(skillSpecMinValue)
         table.column(skillSpecMaxValue)
+        table.column(skillSpecGroupForeign)
         table.foreignKey(skillSpecGroupForeign, references: groups, groupId, delete: .setNull)
     })
 
@@ -85,7 +87,11 @@ private func makeDataBase(withPath pathToDatabase: String) {
     try! database.run(skills.create(ifNotExists: true) { table in
         table.column(skillId, primaryKey: .autoincrement)
         table.column(skillValue)
+        table.column(skillSkillSpecForeign)
+        table.column(skillPlayerForeign)
         table.foreignKey(skillSkillSpecForeign, references: skillSpecs, skillSpecId, delete: .setNull)
         table.foreignKey(skillPlayerForeign, references: players, playerId, delete: .setNull)
     })
+
+    return database
 }

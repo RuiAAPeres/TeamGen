@@ -15,7 +15,12 @@
 		B2E3248A1F9F99650083A1F9 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324881F9F99650083A1F9 /* Nimble.framework */; };
 		B2E3248B1F9F99650083A1F9 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324891F9F99650083A1F9 /* Quick.framework */; };
 		B2E3249C1F9F9B800083A1F9 /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
-		B2E324A11F9F9BFD0083A1F9 /* TeamGenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E3249E1F9F9BFC0083A1F9 /* TeamGenTests.swift */; };
+		B2E324A11F9F9BFD0083A1F9 /* DatabaseMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E3249E1F9F9BFC0083A1F9 /* DatabaseMakerTests.swift */; };
+		B2E324A31F9FA2680083A1F9 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
+		B2E324A41F9FA2680083A1F9 /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
+		B2E324A51F9FA2680083A1F9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
+		B2E324A61F9FA2680083A1F9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
+		B2E324A71F9FA2680083A1F9 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51711F9BEA8A00783ACB /* SQLite.framework */; };
 		B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
 		B2EC51741F9BEA8A00783ACB /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
 		B2EC51751F9BEA8A00783ACB /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51711F9BEA8A00783ACB /* SQLite.framework */; };
@@ -71,7 +76,7 @@
 		B2E324881F9F99650083A1F9 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		B2E324891F9F99650083A1F9 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveFeedback.framework; path = Carthage/Build/iOS/ReactiveFeedback.framework; sourceTree = "<group>"; };
-		B2E3249E1F9F9BFC0083A1F9 /* TeamGenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamGenTests.swift; sourceTree = "<group>"; };
+		B2E3249E1F9F9BFC0083A1F9 /* DatabaseMakerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseMakerTests.swift; sourceTree = "<group>"; };
 		B2E324A01F9F9BFD0083A1F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2EC516F1F9BEA8A00783ACB /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
@@ -109,6 +114,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E324A31F9FA2680083A1F9 /* ReactiveCocoa.framework in Frameworks */,
+				B2E324A41F9FA2680083A1F9 /* ReactiveFeedback.framework in Frameworks */,
+				B2E324A51F9FA2680083A1F9 /* ReactiveSwift.framework in Frameworks */,
+				B2E324A61F9FA2680083A1F9 /* Result.framework in Frameworks */,
+				B2E324A71F9FA2680083A1F9 /* SQLite.framework in Frameworks */,
 				B2E3248A1F9F99650083A1F9 /* Nimble.framework in Frameworks */,
 				B2E3248B1F9F99650083A1F9 /* Quick.framework in Frameworks */,
 			);
@@ -214,7 +224,7 @@
 		B2E3249D1F9F9BFC0083A1F9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B2E3249E1F9F9BFC0083A1F9 /* TeamGenTests.swift */,
+				B2E3249E1F9F9BFC0083A1F9 /* DatabaseMakerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -398,6 +408,11 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveFeedback.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
 			outputPaths = (
 			);
@@ -455,7 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2E324A11F9F9BFD0083A1F9 /* TeamGenTests.swift in Sources */,
+				B2E324A11F9F9BFD0083A1F9 /* DatabaseMakerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
