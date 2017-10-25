@@ -6,4 +6,3 @@ struct PlayerDatabaseRepresentation {
     let name = Expression<String>("name")
     let groupForeign = Expression<Int64>("group")
 }
-

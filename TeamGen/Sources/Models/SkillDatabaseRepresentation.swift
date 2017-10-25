@@ -16,6 +16,3 @@ struct SkillSpecDatabaseRepresentation {
     let maxValue = Expression<Double>("maxValue")
     let groupForeign = Expression<Int64>("group")
 }
-
-
-
