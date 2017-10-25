@@ -24,6 +24,7 @@ private func makeDataBaseCreationFeedback(with maker: DatabaseMakerProtocol)
             case .initial:
                 return maker.makeDatabase()
                     .map(AppViewModel.Event.load)
+                    .ignoreError()
             case .loaded:
                 return .empty
             }
