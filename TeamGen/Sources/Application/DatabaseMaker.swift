@@ -33,64 +33,52 @@ struct DatabaseMaker: DatabaseMakerProtocol {
 private func makeDataBase(withPath pathToDatabase: String) -> Connection {
 
     let database = try! Connection(pathToDatabase)
+    let groupDBRepresentation = GroupDatabaseRepresentation()
+    let playerDBRepresentation = PlayerDatabaseRepresentation()
+    let skillSpecDBRepresentation = SkillSpecDatabaseRepresentation()
+    let skillDBRepresentation = SkillDatabaseRepresentation()
 
-    let groups = Table("Groups")
-
-    let groupId = Expression<Int64>("id")
-    let groupName = Expression<String>("name")
-    let groupDescription = Expression<String>("description")
-
-    let players = Table("Players")
-
-    let playerId = Expression<Int64>("id")
-    let playerName = Expression<String>("name")
-    let playerGroupForeign = Expression<Int64>("group")
-
-    let skillSpecs = Table("SkillSpecs")
-
-    let skillSpecId = Expression<Int64>("id")
-    let skillsSpecName = Expression<String>("name")
-    let skillSpecMinValue = Expression<Double>("minValue")
-    let skillSpecMaxValue = Expression<Double>("maxValue")
-    let skillSpecGroupForeign = Expression<Int64>("group")
-
-    let skills = Table("Skills")
-
-    let skillId = Expression<Int64>("id")
-    let skillValue = Expression<Double>("value")
-    let skillSkillSpecForeign = Expression<Int64>("skillSpec")
-    let skillPlayerForeign = Expression<Int64>("player")
-
-    try! database.run(groups.create(ifNotExists: true) { table in
-        table.column(groupId, primaryKey: .autoincrement)
-        table.column(groupName, unique: true)
-        table.column(groupDescription, defaultValue: "")
+    try! database.run(groupDBRepresentation.table.create(ifNotExists: true) { table in
+        table.column(groupDBRepresentation.id, primaryKey: .autoincrement)
+        table.column(groupDBRepresentation.name, unique: true)
     })
 
-    try! database.run(players.create(ifNotExists: true) { table in
-        table.column(playerId, primaryKey: .autoincrement)
-        table.column(playerName)
-        table.column(playerGroupForeign)
-        table.foreignKey(playerGroupForeign, references: groups, groupId, delete: .setNull)
+    try! database.run(playerDBRepresentation.table.create(ifNotExists: true) { table in
+        table.column(playerDBRepresentation.id, primaryKey: .autoincrement)
+        table.column(playerDBRepresentation.name, unique: true)
+        table.column(playerDBRepresentation.groupForeign)
+        table.foreignKey(playerDBRepresentation.groupForeign,
+                         references: groupDBRepresentation.table,
+                         groupDBRepresentation.id,
+                         delete: .setNull)
     })
 
-    try! database.run(skillSpecs.create(ifNotExists: true) { table in
-        table.column(skillSpecId, primaryKey: .autoincrement)
-        table.column(skillsSpecName)
-        table.column(skillSpecMinValue)
-        table.column(skillSpecMaxValue)
-        table.column(skillSpecGroupForeign)
-        table.foreignKey(skillSpecGroupForeign, references: groups, groupId, delete: .setNull)
+    try! database.run(skillSpecDBRepresentation.table.create(ifNotExists: true) { table in
+        table.column(skillSpecDBRepresentation.id, primaryKey: .autoincrement)
+        table.column(skillSpecDBRepresentation.name, unique: true)
+        table.column(skillSpecDBRepresentation.minValue)
+        table.column(skillSpecDBRepresentation.maxValue)
+        table.column(skillSpecDBRepresentation.groupForeign)
+        table.foreignKey(skillSpecDBRepresentation.groupForeign,
+                         references: groupDBRepresentation.table,
+                         groupDBRepresentation.id,
+                         delete: .setNull)
     })
 
+    try! database.run(skillDBRepresentation.table.create(ifNotExists: true) { table in
+        table.column(skillDBRepresentation.id, primaryKey: .autoincrement)
+        table.column(skillDBRepresentation.value)
+        table.column(skillDBRepresentation.skillSpecForeign)
+        table.column(skillDBRepresentation.playerForeign)
+        table.foreignKey(skillDBRepresentation.skillSpecForeign,
+                         references: skillSpecDBRepresentation.table,
+                         skillSpecDBRepresentation.id,
+                         delete: .setNull)
 
-    try! database.run(skills.create(ifNotExists: true) { table in
-        table.column(skillId, primaryKey: .autoincrement)
-        table.column(skillValue)
-        table.column(skillSkillSpecForeign)
-        table.column(skillPlayerForeign)
-        table.foreignKey(skillSkillSpecForeign, references: skillSpecs, skillSpecId, delete: .setNull)
-        table.foreignKey(skillPlayerForeign, references: players, playerId, delete: .setNull)
+        table.foreignKey(skillDBRepresentation.playerForeign,
+                         references: playerDBRepresentation.table,
+                         playerDBRepresentation.id,
+                         delete: .setNull)
     })
 
     return database
