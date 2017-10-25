@@ -22,6 +22,16 @@ struct GroupsRepository: GroupsRepositoryProtocol {
     }
 
     func make(group: Group) -> SignalProducer<Group, NoError> {
+        let groupDBRepresentation = GroupDatabaseRepresentation()
+        let groupsTable = groupDBRepresentation.table
+
+        try! dataBaseConnection.run(groupsTable
+            .insert(groupDBRepresentation.name <- group.name))
+
+        for group in try! dataBaseConnection.prepare(groupsTable) {
+            print(group)
+        }
+
         return .empty
     }
 
