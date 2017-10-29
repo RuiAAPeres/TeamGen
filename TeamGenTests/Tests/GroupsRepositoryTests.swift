@@ -4,7 +4,7 @@ import Nimble
 
 class GroupsRepositoryTests: XCTestCase {
     
-    override func tearDown() {
+    override func setUp() {
         removeFile(atPath: defaultDatabasePath)
     }
 
@@ -17,7 +17,7 @@ class GroupsRepositoryTests: XCTestCase {
         let player1 = Player(name: "Player1", skills: [skill1, skill2])
         let player2 = Player(name: "Player2", skills: [skill1, skill2])
 
-        let group = Group(name: "Best group", players: [player1, player2], skillSpec: [spec1, spec1])
+        let group = Group(name: "Best group", players: [player1, player2], skillSpec: [spec1, spec2])
 
         let groupRepository = GroupsRepository(dataBaseConnection: defaultDatabase)
         let returnedGroup = groupRepository.make(group: group).first()?.value!
