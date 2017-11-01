@@ -20,7 +20,6 @@
 		B2DBC5571F9BD1D4000F4AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */; };
 		B2E3248A1F9F99650083A1F9 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324881F9F99650083A1F9 /* Nimble.framework */; };
 		B2E3249C1F9F9B800083A1F9 /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
-		B2E324A11F9F9BFD0083A1F9 /* DatabaseMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E3249E1F9F9BFC0083A1F9 /* DatabaseMakerTests.swift */; };
 		B2E324A31F9FA2680083A1F9 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
 		B2E324A41F9FA2680083A1F9 /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
 		B2E324A51F9FA2680083A1F9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
@@ -89,7 +88,6 @@
 		B2E324881F9F99650083A1F9 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		B2E324891F9F99650083A1F9 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveFeedback.framework; path = Carthage/Build/iOS/ReactiveFeedback.framework; sourceTree = "<group>"; };
-		B2E3249E1F9F9BFC0083A1F9 /* DatabaseMakerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseMakerTests.swift; sourceTree = "<group>"; };
 		B2E324A01F9F9BFD0083A1F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2E324A91F9FA6590083A1F9 /* Files+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Files+Util.swift"; sourceTree = "<group>"; };
 		B2E324AB1F9FA7B90083A1F9 /* DatabasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasePath.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 		B2E3249D1F9F9BFC0083A1F9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B2E3249E1F9F9BFC0083A1F9 /* DatabaseMakerTests.swift */,
 				B2738ED71FA1330800A51656 /* GroupsRepositoryTests.swift */,
 			);
 			path = Tests;
@@ -357,9 +354,9 @@
 			buildConfigurationList = B2E324851F9F988E0083A1F9 /* Build configuration list for PBXNativeTarget "TeamGenTests" */;
 			buildPhases = (
 				B2E3247A1F9F988D0083A1F9 /* Sources */,
-				B2E3247B1F9F988D0083A1F9 /* Frameworks */,
 				B2E3247C1F9F988D0083A1F9 /* Resources */,
-				B2E3249B1F9F9B410083A1F9 /* ShellScript */,
+				B2E3249B1F9F9B410083A1F9 /* Run Script */,
+				B2E3247B1F9F988D0083A1F9 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -430,19 +427,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B2E3249B1F9F9B410083A1F9 /* ShellScript */ = {
+		B2E3249B1F9F9B410083A1F9 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveFeedback.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,7 +502,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2E324A11F9F9BFD0083A1F9 /* DatabaseMakerTests.swift in Sources */,
 				B2738ED81FA1330800A51656 /* GroupsRepositoryTests.swift in Sources */,
 				B2E324AA1F9FA6590083A1F9 /* Files+Util.swift in Sources */,
 				B2E324AC1F9FA7B90083A1F9 /* DatabasePath.swift in Sources */,

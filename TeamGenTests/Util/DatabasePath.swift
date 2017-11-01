@@ -9,9 +9,3 @@ let defaultDatabasePath: String = {
 
     return "\(path)/database.sqlite3"
 }()
-
-let defaultDatabase: Connection = {
-    let maker = DatabaseMaker(pathToDatabase: defaultDatabasePath)
-    return maker.makeDatabase().first()!.value!
-}()
-

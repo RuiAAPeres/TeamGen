@@ -1,16 +1,16 @@
-import ReactiveSwift
-import enum Result.NoError
-import SQLite
+ import ReactiveSwift
+ import enum Result.NoError
+ import SQLite
 
-protocol GroupsRepositoryProtocol {
-    func groups() -> SignalProducer<[Group], NoError>
-    func group(withName name: String) -> SignalProducer<Group, NoError>
-    func make(group: Group) -> SignalProducer<Group, NoError>
-    func delete(group: Group) -> SignalProducer<Group, NoError>
-    func update(group: Group) -> SignalProducer<Group, NoError>
-}
+ protocol GroupsRepositoryProtocol {
+    func groups() -> SignalProducer<[Group], CoreError>
+    func group(withName name: String) -> SignalProducer<Group, CoreError>
+    func make(group: Group) -> SignalProducer<Group, CoreError>
+    func delete(group: Group) -> SignalProducer<Group, CoreError>
+    func update(group: Group) -> SignalProducer<Group, CoreError>
+ }
 
-struct GroupsRepository: GroupsRepositoryProtocol {
+ struct GroupsRepository: GroupsRepositoryProtocol {
 
     private let dataBaseConnection: Connection
 
@@ -18,61 +18,131 @@ struct GroupsRepository: GroupsRepositoryProtocol {
         self.dataBaseConnection = dataBaseConnection
     }
 
-    func groups() -> SignalProducer<[Group], NoError> {
+    func groups() -> SignalProducer<[Group], CoreError> {
         return .empty
     }
 
-    func group(withName name: String) -> SignalProducer<Group, NoError> {
-        return .empty
-    }
+    func group(withName name: String) -> SignalProducer<Group, CoreError> {
 
-    func make(group: Group) -> SignalProducer<Group, NoError> {
-        let groupDBRepresentation = GroupDatabaseRepresentation()
-        let skillSpecDBRepresentation = SkillSpecDatabaseRepresentation()
-        let playerDBRepresentation = PlayerDatabaseRepresentation()
-        let skillDBRepresentation = SkillDatabaseRepresentation()
+        do {
+            let groupDBRepresentation = GroupDatabaseRepresentation()
+            let skillSpecDBRepresentation = SkillSpecDatabaseRepresentation()
+            let playerDBRepresentation = PlayerDatabaseRepresentation()
+            let skillDBRepresentation = SkillDatabaseRepresentation()
 
-        let groupsTable = groupDBRepresentation.table
-        let skillSpecTable = skillSpecDBRepresentation.table
-        let playerSpecTable = playerDBRepresentation.table
-        let skillTable = skillDBRepresentation.table
+            let groupsTable = groupDBRepresentation.table
+            let skillSpecTable = skillSpecDBRepresentation.table
+            let playerSpecTable = playerDBRepresentation.table
+            let skillTable = skillDBRepresentation.table
 
-        let groupId = try! dataBaseConnection.run(groupsTable
-            .insert(groupDBRepresentation.name <- group.name))
+            let groupFilter = groupsTable.filter(groupDBRepresentation.name == name)
 
-        var tempSkillSpec: [String: Int64] = [:]
+            let group = try dataBaseConnection.pluck(groupFilter)!
+            let groupName = try group.get(groupDBRepresentation.name).datatypeValue
 
-        group.skillSpec.forEach { skillSpec in
-            let skillSpecId = try! dataBaseConnection.run(skillSpecTable
-                .insert(skillSpecDBRepresentation.name <- skillSpec.name,
-                        skillSpecDBRepresentation.maxValue <- skillSpec.maxValue,
-                        skillSpecDBRepresentation.minValue <- skillSpec.minValue,
-                        skillSpecDBRepresentation.groupForeign <- groupId))
+            let groupPlayersFilter = try playerSpecTable.filter(group.get(groupDBRepresentation.id) == playerDBRepresentation.groupForeign)
+            let groupSkillSetFilter = try skillSpecTable.filter(group.get(groupDBRepresentation.id) == skillSpecDBRepresentation.groupForeign)
 
-            tempSkillSpec.updateValue(skillSpecId, forKey: skillSpec.name)
-        }
+            let skillSpecs: [(SkillSpec, Int64)] = try dataBaseConnection.prepare(groupSkillSetFilter).map { skillSpec in
 
-        group.players.forEach { player in
-            let playerId = try! dataBaseConnection.run(playerSpecTable
-                .insert(playerDBRepresentation.name <- player.name,
-                        playerDBRepresentation.groupForeign <- groupId))
+                let identifier = try skillSpec.get(skillSpecDBRepresentation.id).datatypeValue
+                let name = try skillSpec.get(skillSpecDBRepresentation.name).datatypeValue
+                let minValue = try skillSpec.get(skillSpecDBRepresentation.minValue).datatypeValue
+                let maxValue = try skillSpec.get(skillSpecDBRepresentation.maxValue).datatypeValue
 
-            player.skills.forEach { skill in
-                try! dataBaseConnection.run(skillTable
-                    .insert(skillDBRepresentation.value <- skill.value,
-                            skillDBRepresentation.playerForeign <- playerId,
-                            skillDBRepresentation.skillSpecForeign <- tempSkillSpec[skill.spec.name]!))
+                return (SkillSpec(name: name, minValue: minValue, maxValue: maxValue), identifier)
             }
+
+            let players: [Player] = try dataBaseConnection.prepare(groupPlayersFilter).map { player in
+                let playerName = try player.get(playerDBRepresentation.name).datatypeValue
+                let skillFilter = try skillTable.filter(player.get(playerDBRepresentation.id) == skillDBRepresentation.playerForeign)
+
+                let skills: [Skill] = try dataBaseConnection.prepare(skillFilter).map { skill in
+                    let specIdentifier = try skill.get(skillDBRepresentation.skillSpecForeign).datatypeValue
+                    let value = try skill.get(skillDBRepresentation.value).datatypeValue
+                    let spec = skillSpecs.filter { $0.1 == specIdentifier }.first?.0
+
+                    guard let unwrapped = spec,
+                        let skill = Skill(value: value, spec: unwrapped) else {
+                            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Couldn't create skill"])
+                    }
+
+                    return skill
+                }
+
+                return Player(name: playerName, skills: skills)
+            }
+
+            return Group(name: groupName, players: players, skillSpec: skillSpecs.map { $0.0} )
+                |> SignalProducer.init(value:)
         }
+        catch {
+            return error.localizedDescription
+                |> CoreError.reading
+                |> SignalProducer.init(error:)
+        }
+    }
 
+    func make(group: Group) -> SignalProducer<Group, CoreError> {
+
+        do {
+            let groupDBRepresentation = GroupDatabaseRepresentation()
+            let skillSpecDBRepresentation = SkillSpecDatabaseRepresentation()
+            let playerDBRepresentation = PlayerDatabaseRepresentation()
+            let skillDBRepresentation = SkillDatabaseRepresentation()
+
+            let groupsTable = groupDBRepresentation.table
+            let skillSpecTable = skillSpecDBRepresentation.table
+            let playerSpecTable = playerDBRepresentation.table
+            let skillTable = skillDBRepresentation.table
+
+            let groupId = try dataBaseConnection.run(groupsTable
+                .insert(groupDBRepresentation.name <- group.name))
+
+            var tempSkillSpec: [String: Int64] = [:]
+
+            try group.skillSpec.forEach { skillSpec in
+                let skillSpecId = try dataBaseConnection.run(skillSpecTable
+                    .insert(skillSpecDBRepresentation.name <- skillSpec.name,
+                            skillSpecDBRepresentation.maxValue <- skillSpec.maxValue,
+                            skillSpecDBRepresentation.minValue <- skillSpec.minValue,
+                            skillSpecDBRepresentation.groupForeign <- groupId))
+
+                tempSkillSpec.updateValue(skillSpecId, forKey: skillSpec.name)
+            }
+
+            try group.players.forEach { player in
+                let playerId = try dataBaseConnection.run(playerSpecTable
+                    .insert(playerDBRepresentation.name <- player.name,
+                            playerDBRepresentation.groupForeign <- groupId))
+
+                try player.skills.forEach { skill in
+
+                    guard let skillSpecIdentifier = tempSkillSpec[skill.spec.name] else {
+                        throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Couldn't find a skillSpec with name \(skill.spec.name)"])
+                    }
+
+                    try dataBaseConnection.run(skillTable
+                        .insert(skillDBRepresentation.value <- skill.value,
+                                skillDBRepresentation.playerForeign <- playerId,
+                                skillDBRepresentation.skillSpecForeign <- skillSpecIdentifier))
+                }
+            }
+
+            return self.group(withName: group.name)
+        }
+        catch {
+            return error.localizedDescription
+                |> CoreError.inserting
+                |> SignalProducer.init(error:)
+        }
+    }
+
+    func delete(group: Group) -> SignalProducer<Group, CoreError> {
         return .empty
     }
 
-    func delete(group: Group) -> SignalProducer<Group, NoError> {
+    func update(group: Group) -> SignalProducer<Group, CoreError> {
         return .empty
     }
-
-    func update(group: Group) -> SignalProducer<Group, NoError> {
-        return .empty
-    }
-}
+ }

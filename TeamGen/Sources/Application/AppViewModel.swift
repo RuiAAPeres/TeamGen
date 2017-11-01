@@ -3,11 +3,13 @@ import ReactiveFeedback
 import enum Result.NoError
 import SQLite
 
+typealias DatabaseCreator = () -> SignalProducer<Connection, CoreError>
+
 struct AppViewModel {
 
     let state: Property<State>
 
-    init(maker: DatabaseMakerProtocol) {
+    init(maker: @escaping DatabaseCreator) {
 
         let dataBaseCreationFeedback = makeDataBaseCreationFeedback(with: maker)
 
@@ -17,12 +19,12 @@ struct AppViewModel {
     }
 }
 
-private func makeDataBaseCreationFeedback(with maker: DatabaseMakerProtocol)
+private func makeDataBaseCreationFeedback(with maker: @escaping DatabaseCreator)
     -> Feedback<AppViewModel.State, AppViewModel.Event> {
         return Feedback { state -> SignalProducer<AppViewModel.Event, NoError> in
             switch state {
             case .initial:
-                return maker.makeDatabase()
+                return maker()
                     .map(AppViewModel.Event.load)
                     .ignoreError()
             case .loaded:

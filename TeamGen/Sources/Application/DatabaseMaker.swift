@@ -9,26 +9,18 @@ private let defaultPath: String = {
     return "\(path)/database.sqlite3"
 }()
 
-protocol DatabaseMakerProtocol {
-    func makeDatabase() -> SignalProducer<Connection, CoreError>
-}
-
-struct DatabaseMaker: DatabaseMakerProtocol {
-
-    private let pathToDatabase: String
-
-    init(pathToDatabase: String = defaultPath) {
-        self.pathToDatabase = pathToDatabase
+func makeDataBase(withPath path: String = defaultPath) -> SignalProducer<Connection, CoreError> {
+    guard let database = try? Connection(path) else {
+        return "Couldn't create database with path: \(path)"
+            |> CoreError.creatingDatabase
+            |> SignalProducer.init(error:)
     }
 
-    func makeDatabase() -> SignalProducer<Connection, CoreError> {
-        return makeDataBase(withPath: pathToDatabase)
-    }
+    return makeDataBase(with: database)
 }
 
-private func makeDataBase(withPath path: String) -> SignalProducer<Connection, CoreError> {
+func makeDataBase(with database: Connection) -> SignalProducer<Connection, CoreError> {
     do {
-        let database = try Connection(path)
         let groupDBRepresentation = GroupDatabaseRepresentation()
         let playerDBRepresentation = PlayerDatabaseRepresentation()
         let skillSpecDBRepresentation = SkillSpecDatabaseRepresentation()
@@ -85,3 +77,4 @@ private func makeDataBase(withPath path: String) -> SignalProducer<Connection, C
             |> SignalProducer.init(error:)
     }
 }
+
