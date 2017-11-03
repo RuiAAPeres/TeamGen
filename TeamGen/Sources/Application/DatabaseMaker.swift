@@ -38,7 +38,7 @@ func makeDataBase(with database: Connection) -> SignalProducer<Connection, CoreE
             table.foreignKey(playerDBRepresentation.groupForeign,
                              references: groupDBRepresentation.table,
                              groupDBRepresentation.id,
-                             delete: .setNull)
+                             delete: .cascade)
         })
 
         try database.run(skillSpecDBRepresentation.table.create(ifNotExists: true) { table in
@@ -50,7 +50,7 @@ func makeDataBase(with database: Connection) -> SignalProducer<Connection, CoreE
             table.foreignKey(skillSpecDBRepresentation.groupForeign,
                              references: groupDBRepresentation.table,
                              groupDBRepresentation.id,
-                             delete: .setNull)
+                             delete: .cascade)
         })
 
         try database.run(skillDBRepresentation.table.create(ifNotExists: true) { table in
@@ -61,12 +61,12 @@ func makeDataBase(with database: Connection) -> SignalProducer<Connection, CoreE
             table.foreignKey(skillDBRepresentation.skillSpecForeign,
                              references: skillSpecDBRepresentation.table,
                              skillSpecDBRepresentation.id,
-                             delete: .setNull)
+                             delete: .cascade)
 
             table.foreignKey(skillDBRepresentation.playerForeign,
                              references: playerDBRepresentation.table,
                              playerDBRepresentation.id,
-                             delete: .setNull)
+                             delete: .cascade)
         })
 
         return database |> SignalProducer.init(value:)
