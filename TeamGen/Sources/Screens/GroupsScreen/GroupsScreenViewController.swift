@@ -1,5 +1,5 @@
 import UIKit
 
-class GroupsScreenViewController: UIViewController {
+final class GroupsScreenViewController: UIViewController {
     
 }

@@ -1,4 +1,5 @@
 import ReactiveSwift
+import ReactiveFeedback
 
 struct GroupsScreenViewModel: ViewLifeCycleObservable {
 
@@ -6,7 +7,7 @@ struct GroupsScreenViewModel: ViewLifeCycleObservable {
     let viewLifecycle: MutableProperty<ViewLifeCycle>
 
     init(groupsBusinessController: GroupsRepositoryProtocol) {
-        state = Property.init(initial: .loading,
+        state = Property(initial: .loading,
                               reduce: GroupsScreenViewModel.reducer,
                               feedbacks: [])
 

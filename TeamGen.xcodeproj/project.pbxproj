@@ -8,12 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B202C18B1F9C1A670018F95C /* GroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202C18A1F9C1A670018F95C /* GroupsRepository.swift */; };
-		B202C18D1F9C20560018F95C /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202C18C1F9C20560018F95C /* AppViewModel.swift */; };
-		B25DFEA21F9D300300F26FB9 /* DatabaseMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25DFEA11F9D300300F26FB9 /* DatabaseMaker.swift */; };
+		B20873DB1FFD47ED007DDA89 /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20873DA1FFD47ED007DDA89 /* Disk.framework */; };
+		B20873DD1FFD4FE7007DDA89 /* AppBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */; };
 		B2738ED81FA1330800A51656 /* GroupsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738ED71FA1330800A51656 /* GroupsRepositoryTests.swift */; };
-		B2738EDC1FA139AD00A51656 /* GroupDatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738EDB1FA139AD00A51656 /* GroupDatabaseRepresentation.swift */; };
-		B2738EDE1FA139E400A51656 /* PlayerDatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738EDD1FA139E400A51656 /* PlayerDatabaseRepresentation.swift */; };
-		B2738EE01FA13A0E00A51656 /* SkillDatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738EDF1FA13A0E00A51656 /* SkillDatabaseRepresentation.swift */; };
 		B2738EE21FA146BA00A51656 /* CoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738EE11FA146BA00A51656 /* CoreError.swift */; };
 		B2738EE81FA1494000A51656 /* ReactiveCocoa+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738EE71FA1494000A51656 /* ReactiveCocoa+Extensions.swift */; };
 		B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */; };
@@ -29,7 +26,6 @@
 		B2E324AC1F9FA7B90083A1F9 /* DatabasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E324AB1F9FA7B90083A1F9 /* DatabasePath.swift */; };
 		B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
 		B2EC51741F9BEA8A00783ACB /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
-		B2EC51751F9BEA8A00783ACB /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51711F9BEA8A00783ACB /* SQLite.framework */; };
 		B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
 		B2EC51781F9BF7B000783ACB /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51771F9BF7B000783ACB /* AppDependencies.swift */; };
 		B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51791F9BF80B00783ACB /* AppFlowController.swift */; };
@@ -71,12 +67,9 @@
 
 /* Begin PBXFileReference section */
 		B202C18A1F9C1A670018F95C /* GroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRepository.swift; sourceTree = "<group>"; };
-		B202C18C1F9C20560018F95C /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
-		B25DFEA11F9D300300F26FB9 /* DatabaseMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseMaker.swift; sourceTree = "<group>"; };
+		B20873DA1FFD47ED007DDA89 /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
+		B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBuilder.swift; sourceTree = "<group>"; };
 		B2738ED71FA1330800A51656 /* GroupsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRepositoryTests.swift; sourceTree = "<group>"; };
-		B2738EDB1FA139AD00A51656 /* GroupDatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDatabaseRepresentation.swift; sourceTree = "<group>"; };
-		B2738EDD1FA139E400A51656 /* PlayerDatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDatabaseRepresentation.swift; sourceTree = "<group>"; };
-		B2738EDF1FA13A0E00A51656 /* SkillDatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDatabaseRepresentation.swift; sourceTree = "<group>"; };
 		B2738EE11FA146BA00A51656 /* CoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreError.swift; sourceTree = "<group>"; };
 		B2738EE71FA1494000A51656 /* ReactiveCocoa+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactiveCocoa+Extensions.swift"; sourceTree = "<group>"; };
 		B2DBC5371F9BD0F0000F4AF9 /* TeamGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,10 +108,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20873DB1FFD47ED007DDA89 /* Disk.framework in Frameworks */,
 				B2E3249C1F9F9B800083A1F9 /* ReactiveFeedback.framework in Frameworks */,
 				B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */,
 				B2EC51741F9BEA8A00783ACB /* ReactiveCocoa.framework in Frameworks */,
-				B2EC51751F9BEA8A00783ACB /* SQLite.framework in Frameworks */,
 				B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,8 +194,7 @@
 				B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */,
 				B2EC51771F9BF7B000783ACB /* AppDependencies.swift */,
 				B2EC51791F9BF80B00783ACB /* AppFlowController.swift */,
-				B202C18C1F9C20560018F95C /* AppViewModel.swift */,
-				B25DFEA11F9D300300F26FB9 /* DatabaseMaker.swift */,
+				B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -262,6 +254,7 @@
 		B2EC516E1F9BEA8A00783ACB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B20873DA1FFD47ED007DDA89 /* Disk.framework */,
 				B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */,
 				B2E324881F9F99650083A1F9 /* Nimble.framework */,
 				B2E324891F9F99650083A1F9 /* Quick.framework */,
@@ -317,11 +310,8 @@
 			isa = PBXGroup;
 			children = (
 				B2EC519B1F9C0FA500783ACB /* Group.swift */,
-				B2738EDB1FA139AD00A51656 /* GroupDatabaseRepresentation.swift */,
 				B2EC519D1F9C0FC500783ACB /* Player.swift */,
-				B2738EDD1FA139E400A51656 /* PlayerDatabaseRepresentation.swift */,
 				B2EC519F1F9C102F00783ACB /* Skill.swift */,
-				B2738EDF1FA13A0E00A51656 /* SkillDatabaseRepresentation.swift */,
 				B2738EE11FA146BA00A51656 /* CoreError.swift */,
 			);
 			path = Models;
@@ -436,7 +426,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveFeedback.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
@@ -456,7 +446,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveFeedback.framework",
 			);
 			name = Carthage;
@@ -474,10 +464,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2738EE21FA146BA00A51656 /* CoreError.swift in Sources */,
-				B2738EDC1FA139AD00A51656 /* GroupDatabaseRepresentation.swift in Sources */,
 				B2738EE81FA1494000A51656 /* ReactiveCocoa+Extensions.swift in Sources */,
 				B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */,
-				B202C18D1F9C20560018F95C /* AppViewModel.swift in Sources */,
 				B2EC519C1F9C0FA500783ACB /* Group.swift in Sources */,
 				B2EC51B31F9C154B00783ACB /* GroupsScreenViewModel.swift in Sources */,
 				B2EC51781F9BF7B000783ACB /* AppDependencies.swift in Sources */,
@@ -486,14 +474,12 @@
 				B2EC51B51F9C155000783ACB /* GroupsScreenViewController.swift in Sources */,
 				B2EC51B01F9C14BB00783ACB /* curry.swift in Sources */,
 				B2EC51AF1F9C14AE00783ACB /* Flow.swift in Sources */,
-				B2738EDE1FA139E400A51656 /* PlayerDatabaseRepresentation.swift in Sources */,
 				B202C18B1F9C1A670018F95C /* GroupsRepository.swift in Sources */,
 				B2EC51A01F9C102F00783ACB /* Skill.swift in Sources */,
-				B25DFEA21F9D300300F26FB9 /* DatabaseMaker.swift in Sources */,
 				B2EC51B21F9C14BB00783ACB /* pipe.swift in Sources */,
 				B2EC519E1F9C0FC500783ACB /* Player.swift in Sources */,
+				B20873DD1FFD4FE7007DDA89 /* AppBuilder.swift in Sources */,
 				B2EC51B41F9C155000783ACB /* GroupsScreenFlowController.swift in Sources */,
-				B2738EE01FA13A0E00A51656 /* SkillDatabaseRepresentation.swift in Sources */,
 				B2EC51B11F9C14BB00783ACB /* flip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

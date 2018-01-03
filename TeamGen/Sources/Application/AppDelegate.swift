@@ -10,12 +10,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
         -> Bool {
 
-            let dependenciesCreator = curry(AppDependencies.init)(window)(Bundle.main)
-            let flowController = AppFlowController(flow: window.flow, maker: dependenciesCreator)
-            let viewModel = AppViewModel { makeDataBase() }
+            let dependencies = AppDependencies(window: window, bundle: Bundle.main)
+            let appBuilder = AppBuilder(appDependencies: dependencies)
 
-            flowController.observe(state: viewModel.state.signal)
+            let flowController = AppFlowController(flow: window.flow, builder: appBuilder)
 
+            flowController.presentGroupsScreen()
             return true
     }
 }
