@@ -1,11 +1,11 @@
 import XCTest
 import Nimble
-import SQLite
+import Disk
 @testable import TeamGen
 
 class GroupsRepositoryTests: XCTestCase {
 
-    private var groupRepository: GroupsRepository!
+    private var groupRepository = GroupsRepository()
 
     private var group1: Group = {
         let spec1 = SkillSpec(name: "One skill", minValue: 0, maxValue: 5)
@@ -50,14 +50,7 @@ class GroupsRepositoryTests: XCTestCase {
     }()
 
     override func setUp() {
-        let connection = try! Connection()
-        let database = makeDataBase(with: connection).first()!.value!
-        self.groupRepository = GroupsRepository(dataBaseConnection: database)
-    }
-
-    func testMakeGroup() {
-        let returnedGroup = groupRepository.make(group: group1).first()?.value
-        expect(self.group1).to(equal(returnedGroup))
+       try! Disk.clear(.applicationSupport)
     }
 
     func testMakeGroupWithInconsistentSkillSpec() {
@@ -72,32 +65,35 @@ class GroupsRepositoryTests: XCTestCase {
 
         let group = Group(name: "Best group 1", players: [player1, player2], skillSpec: [spec1])
 
-        let error = groupRepository.make(group: group).first()?.error
+        let error = groupRepository.insert(group: group).first()?.error
 
         expect(error).to(equal(CoreError.inserting("Couldn't find a skillSpec with name Two skill")))
     }
 
-    func testMakeGroupTwice() {
-        _ = groupRepository.make(group: group1).first()?.value
-        let error = groupRepository.make(group: group1).first()?.error
 
-        expect(error).to(equal(CoreError.inserting("The operation couldn’t be completed. (SQLite.Result error 0.)")))
+
+    func testMakeGroupTwice() {
+        _ = groupRepository.insert(group: group1).first()?.value
+        let error = groupRepository.insert(group: group1).first()?.error
+
+        expect(error).to(equal(CoreError.inserting("Already exists")))
     }
 
     func testRetrieveCorrectGroup() {
-        _ = groupRepository.make(group: group1).first()?.value
-        let returnedGroup = groupRepository.make(group: group2).first()?.value
+        _ = groupRepository.insert(group: group1).first()?.value
+        let returnedGroup = groupRepository.insert(group: group2).first()?.value
 
         expect(self.group2).to(equal(returnedGroup))
     }
 
     func testDeleteGroup() {
-        let group = groupRepository.make(group: group1).first()!.value!
-        let outcome = groupRepository.delete(group: group).first()?.value
+        let group = groupRepository.insert(group: group1).first()!.value!
+        let outcome: Void? = groupRepository.delete(withName: group.name).first()?.value
 
         expect(outcome).toNot(beNil())
 
         let error = groupRepository.group(withName: group.name).first()?.error
-        expect(error).to(equal(CoreError.reading("Couldn't find group with name Best group 1")))
+        expect(error).to(equal(CoreError.reading("Best group 1 not found")))
     }
 }
+

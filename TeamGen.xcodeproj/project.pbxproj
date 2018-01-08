@@ -10,6 +10,7 @@
 		B202C18B1F9C1A670018F95C /* GroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202C18A1F9C1A670018F95C /* GroupsRepository.swift */; };
 		B20873DB1FFD47ED007DDA89 /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20873DA1FFD47ED007DDA89 /* Disk.framework */; };
 		B20873DD1FFD4FE7007DDA89 /* AppBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */; };
+		B20F2ED12003D4AF0017AAAB /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20873DA1FFD47ED007DDA89 /* Disk.framework */; };
 		B2738ED81FA1330800A51656 /* GroupsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738ED71FA1330800A51656 /* GroupsRepositoryTests.swift */; };
 		B2738EE21FA146BA00A51656 /* CoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738EE11FA146BA00A51656 /* CoreError.swift */; };
 		B2738EE81FA1494000A51656 /* ReactiveCocoa+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738EE71FA1494000A51656 /* ReactiveCocoa+Extensions.swift */; };
@@ -21,9 +22,7 @@
 		B2E324A41F9FA2680083A1F9 /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
 		B2E324A51F9FA2680083A1F9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
 		B2E324A61F9FA2680083A1F9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
-		B2E324A71F9FA2680083A1F9 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51711F9BEA8A00783ACB /* SQLite.framework */; };
 		B2E324AA1F9FA6590083A1F9 /* Files+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E324A91F9FA6590083A1F9 /* Files+Util.swift */; };
-		B2E324AC1F9FA7B90083A1F9 /* DatabasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E324AB1F9FA7B90083A1F9 /* DatabasePath.swift */; };
 		B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
 		B2EC51741F9BEA8A00783ACB /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
 		B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
@@ -83,7 +82,6 @@
 		B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveFeedback.framework; path = Carthage/Build/iOS/ReactiveFeedback.framework; sourceTree = "<group>"; };
 		B2E324A01F9F9BFD0083A1F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2E324A91F9FA6590083A1F9 /* Files+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Files+Util.swift"; sourceTree = "<group>"; };
-		B2E324AB1F9FA7B90083A1F9 /* DatabasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasePath.swift; sourceTree = "<group>"; };
 		B2EC516F1F9BEA8A00783ACB /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		B2EC51711F9BEA8A00783ACB /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
@@ -120,11 +118,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20F2ED12003D4AF0017AAAB /* Disk.framework in Frameworks */,
 				B2E324A31F9FA2680083A1F9 /* ReactiveCocoa.framework in Frameworks */,
 				B2E324A41F9FA2680083A1F9 /* ReactiveFeedback.framework in Frameworks */,
 				B2E324A51F9FA2680083A1F9 /* ReactiveSwift.framework in Frameworks */,
 				B2E324A61F9FA2680083A1F9 /* Result.framework in Frameworks */,
-				B2E324A71F9FA2680083A1F9 /* SQLite.framework in Frameworks */,
 				B2E3248A1F9F99650083A1F9 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				B2E324A91F9FA6590083A1F9 /* Files+Util.swift */,
-				B2E324AB1F9FA7B90083A1F9 /* DatabasePath.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -490,7 +487,6 @@
 			files = (
 				B2738ED81FA1330800A51656 /* GroupsRepositoryTests.swift in Sources */,
 				B2E324AA1F9FA6590083A1F9 /* Files+Util.swift in Sources */,
-				B2E324AC1F9FA7B90083A1F9 /* DatabasePath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
