@@ -61,9 +61,16 @@
             return SignalProducer(value: groups)
         }
 
-        return groups()
-            .flatMap(.latest, alreadyExists)
-            .map { return $0 + [group] }
+        let sanityCheck: (Group) -> SignalProducer<Group, CoreError> = { group in
+            let isValid = GroupsRepository.areSkillsValid_sanityCheck(group: group)
+            return isValid ? SignalProducer(value: group) : SignalProducer(error: CoreError.inserting("Invalid group"))
+        }
+
+        return
+            SignalProducer(value: group)
+            .flatMap(.latest, sanityCheck)
+            .combineLatest(with: self.groups().flatMap(.latest, alreadyExists))
+            .map { return $0.1 + [$0.0] }
             .flatMap(.latest, saveGroups)
             .then(SignalProducer(value: group))
             .start(on: queue)
@@ -106,7 +113,7 @@
  }
 
  extension GroupsRepository {
-    private func areSkillsValid_sanityCheck(group: Group) -> Bool {
+    static fileprivate func areSkillsValid_sanityCheck(group: Group) -> Bool {
         let skillSpecs = group.skillSpec
         let players = group.players
 
