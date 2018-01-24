@@ -39,7 +39,6 @@
     }
 
     func group(withName name: String) -> SignalProducer<Group, CoreError> {
-
         func findGroup(groups: [Group]) -> SignalProducer<Group, CoreError> {
             let filter: (Group) -> Bool = { $0.name == name }
 

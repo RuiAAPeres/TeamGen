@@ -67,10 +67,8 @@ class GroupsRepositoryTests: XCTestCase {
 
         let error = groupRepository.insert(group: group).first()?.error
 
-        expect(error).to(equal(CoreError.inserting("Couldn't find a skillSpec with name Two skill")))
+        expect(error).to(equal(CoreError.inserting("Invalid group")))
     }
-
-
 
     func testMakeGroupTwice() {
         _ = groupRepository.insert(group: group1).first()?.value
