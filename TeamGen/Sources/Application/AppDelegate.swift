@@ -11,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         -> Bool {
 
             let dependencies = AppDependencies(window: window, bundle: Bundle.main)
-            let appBuilder = AppBuilder(appDependencies: dependencies)
+            let appBuilder = AppBuilder(dependencies: dependencies)
 
             let flowController = AppFlowController(flow: window.flow, builder: appBuilder)
 

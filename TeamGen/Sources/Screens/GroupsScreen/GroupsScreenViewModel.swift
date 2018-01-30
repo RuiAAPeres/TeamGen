@@ -5,6 +5,8 @@ import enum Result.NoError
 struct GroupsScreenViewModel: ViewLifeCycleObservable {
 
     let state: Property<State>
+    let route: Signal<Route, NoError>
+    private let routeObserver: Signal<Route, NoError>.Observer
     let viewLifecycle: MutableProperty<ViewLifeCycle>
 
     init(groupsReposiotry: GroupsRepositoryProtocol) {
@@ -18,6 +20,8 @@ struct GroupsScreenViewModel: ViewLifeCycleObservable {
                             GroupsScreenViewModel.readyToLoad(lifeCycle.producer),
                             GroupsScreenViewModel.loadGroups(groupsReposiotry)
             ])
+
+        (route, routeObserver) = Signal<Route, NoError>.pipe()
     }
 }
 
@@ -40,6 +44,11 @@ extension GroupsScreenViewModel {
     enum Event {
         case viewIsReady
         case loaded([Group])
+    }
+
+    enum Route {
+        case addGroup
+        case showDetail(Group)
     }
 }
 
