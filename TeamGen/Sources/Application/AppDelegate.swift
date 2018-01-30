@@ -10,10 +10,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
         -> Bool {
 
-        let dependencies = AppDependencies(window: window, bundle: Bundle.main)
-        let appFlow = AppFlowController(dependencies: dependencies)
-        appFlow.presentTeamsScreen()
+            let dependencies = AppDependencies(window: window, bundle: Bundle.main)
+            let appBuilder = AppBuilder(dependencies: dependencies)
 
-        return true
+            let flowController = AppFlowController(flow: window.flow, builder: appBuilder)
+
+            flowController.presentGroupsScreen()
+            return true
     }
 }
