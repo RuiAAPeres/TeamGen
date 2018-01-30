@@ -11,9 +11,12 @@
 		B20873DB1FFD47ED007DDA89 /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20873DA1FFD47ED007DDA89 /* Disk.framework */; };
 		B20873DD1FFD4FE7007DDA89 /* AppBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */; };
 		B20F2ED12003D4AF0017AAAB /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20873DA1FFD47ED007DDA89 /* Disk.framework */; };
-		B2738ED81FA1330800A51656 /* GroupsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738ED71FA1330800A51656 /* GroupsRepositoryTests.swift */; };
 		B2738EE21FA146BA00A51656 /* CoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738EE11FA146BA00A51656 /* CoreError.swift */; };
 		B2738EE81FA1494000A51656 /* ReactiveCocoa+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2738EE71FA1494000A51656 /* ReactiveCocoa+Extensions.swift */; };
+		B27F71DE2020B17F00675D70 /* GroupsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F71DD2020B17F00675D70 /* GroupsRepositoryTests.swift */; };
+		B27F71E02020B19400675D70 /* GroupsScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F71DF2020B19400675D70 /* GroupsScreenViewModelTests.swift */; };
+		B27F71E32020B21B00675D70 /* GroupsRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F71E22020B21B00675D70 /* GroupsRepositoryStub.swift */; };
+		B27F71E62020B50800675D70 /* MockGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F71E52020B50800675D70 /* MockGroups.swift */; };
 		B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */; };
 		B2DBC5571F9BD1D4000F4AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */; };
 		B2E3248A1F9F99650083A1F9 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324881F9F99650083A1F9 /* Nimble.framework */; };
@@ -68,9 +71,12 @@
 		B202C18A1F9C1A670018F95C /* GroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRepository.swift; sourceTree = "<group>"; };
 		B20873DA1FFD47ED007DDA89 /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBuilder.swift; sourceTree = "<group>"; };
-		B2738ED71FA1330800A51656 /* GroupsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRepositoryTests.swift; sourceTree = "<group>"; };
 		B2738EE11FA146BA00A51656 /* CoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreError.swift; sourceTree = "<group>"; };
 		B2738EE71FA1494000A51656 /* ReactiveCocoa+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactiveCocoa+Extensions.swift"; sourceTree = "<group>"; };
+		B27F71DD2020B17F00675D70 /* GroupsRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsRepositoryTests.swift; sourceTree = "<group>"; };
+		B27F71DF2020B19400675D70 /* GroupsScreenViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsScreenViewModelTests.swift; sourceTree = "<group>"; };
+		B27F71E22020B21B00675D70 /* GroupsRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRepositoryStub.swift; sourceTree = "<group>"; };
+		B27F71E52020B50800675D70 /* MockGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGroups.swift; sourceTree = "<group>"; };
 		B2DBC5371F9BD0F0000F4AF9 /* TeamGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DBC54D1F9BD1A6000F4AF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2DBC54F1F9BD1A6000F4AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +136,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B27F71E12020B20F00675D70 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				B27F71E22020B21B00675D70 /* GroupsRepositoryStub.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		B27F71E42020B4FD00675D70 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B27F71E52020B50800675D70 /* MockGroups.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		B2DBC52E1F9BD0F0000F4AF9 = {
 			isa = PBXGroup;
 			children = (
@@ -217,19 +239,12 @@
 		B2E3247F1F9F988E0083A1F9 /* TeamGenTests */ = {
 			isa = PBXGroup;
 			children = (
+				B27F71E42020B4FD00675D70 /* Mocks */,
+				B27F71E12020B20F00675D70 /* Stubs */,
 				B2E324A81F9FA6520083A1F9 /* Util */,
-				B2E3249D1F9F9BFC0083A1F9 /* Tests */,
 				B2E3249F1F9F9BFD0083A1F9 /* Supporting Files */,
 			);
 			path = TeamGenTests;
-			sourceTree = "<group>";
-		};
-		B2E3249D1F9F9BFC0083A1F9 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				B2738ED71FA1330800A51656 /* GroupsRepositoryTests.swift */,
-			);
-			path = Tests;
 			sourceTree = "<group>";
 		};
 		B2E3249F1F9F9BFD0083A1F9 /* Supporting Files */ = {
@@ -298,7 +313,9 @@
 				B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */,
 				B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */,
 				B2EC51991F9C0AEC00783ACB /* GroupsScreenViewModel.swift */,
+				B27F71DF2020B19400675D70 /* GroupsScreenViewModelTests.swift */,
 				B202C18A1F9C1A670018F95C /* GroupsRepository.swift */,
+				B27F71DD2020B17F00675D70 /* GroupsRepositoryTests.swift */,
 			);
 			path = GroupsScreen;
 			sourceTree = "<group>";
@@ -485,7 +502,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2738ED81FA1330800A51656 /* GroupsRepositoryTests.swift in Sources */,
+				B27F71E02020B19400675D70 /* GroupsScreenViewModelTests.swift in Sources */,
+				B27F71DE2020B17F00675D70 /* GroupsRepositoryTests.swift in Sources */,
+				B27F71E32020B21B00675D70 /* GroupsRepositoryStub.swift in Sources */,
+				B27F71E62020B50800675D70 /* MockGroups.swift in Sources */,
 				B2E324AA1F9FA6590083A1F9 /* Files+Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

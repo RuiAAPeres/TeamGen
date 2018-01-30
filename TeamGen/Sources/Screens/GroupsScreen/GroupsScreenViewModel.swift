@@ -70,8 +70,9 @@ extension GroupsScreenViewModel {
         return Feedback { state -> SignalProducer<Event, NoError> in
             guard state == State.initial else { return .empty }
             return lifeCycle
-                .take(first: 1)
                 .filter { $0 == .didLoad }
+                 // shouldn't be needed, since `.didLoad` by definition should be only sent once.
+                .take(first: 1)
                 .map { _ in Event.viewIsReady }
         }
     }
