@@ -2,9 +2,9 @@ import UIKit
 import TeamGenFoundation
 
 final class GroupsScreenViewController: UIViewController {
-    private var viewModel: GroupsScreenViewModel!
+    private var viewModel: GroupsViewModel!
 
-    func setup(with viewModel: GroupsScreenViewModel) {
+    func setup(with viewModel: GroupsViewModel) {
         self.viewModel = viewModel
     }
 

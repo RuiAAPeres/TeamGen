@@ -6,7 +6,7 @@ struct AppBuilder {
 
     func makeGroupsScreen() -> UIViewController {
         let groupsRepository = GroupsRepository()
-        let viewModel = GroupsScreenViewModel(groupsReposiotry: groupsRepository)
+        let viewModel = GroupsViewModel(groupsReposiotry: groupsRepository)
         let viewController = GroupsScreenViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
 

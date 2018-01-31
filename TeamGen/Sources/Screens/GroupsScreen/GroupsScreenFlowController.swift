@@ -12,7 +12,7 @@ struct GroupsScreenFlowController {
         self.navigation = navigation
     }
 
-    func observe(route: GroupsScreenViewModel.Route) {
+    func observe(route: GroupsViewModel.Route) {
         switch route {
         case .addGroup: break
         case let .showDetail(group): break

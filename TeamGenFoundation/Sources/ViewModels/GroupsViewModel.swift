@@ -2,7 +2,7 @@ import ReactiveSwift
 import ReactiveFeedback
 import enum Result.NoError
 
-public struct GroupsScreenViewModel: ViewLifeCycleObservable {
+public struct GroupsViewModel: ViewLifeCycleObservable {
 
     public let state: Property<State>
     public let route: Signal<Route, NoError>
@@ -15,17 +15,17 @@ public struct GroupsScreenViewModel: ViewLifeCycleObservable {
         viewLifecycle = lifeCycle
 
         state = Property(initial: .initial,
-                         reduce: GroupsScreenViewModel.reducer,
+                         reduce: GroupsViewModel.reducer,
                          feedbacks: [
-                            GroupsScreenViewModel.readyToLoad(lifeCycle.producer),
-                            GroupsScreenViewModel.loadGroups(groupsReposiotry)
+                            GroupsViewModel.readyToLoad(lifeCycle.producer),
+                            GroupsViewModel.loadGroups(groupsReposiotry)
             ])
 
         (route, routeObserver) = Signal<Route, NoError>.pipe()
     }
 }
 
-public extension GroupsScreenViewModel {
+public extension GroupsViewModel {
     enum State: Equatable {
         case initial
         case loading
@@ -52,7 +52,7 @@ public extension GroupsScreenViewModel {
     }
 }
 
-extension GroupsScreenViewModel {
+extension GroupsViewModel {
     static func reducer(state: State,
                         event: Event)
         -> State {
@@ -65,7 +65,7 @@ extension GroupsScreenViewModel {
     }
 }
 
-extension GroupsScreenViewModel {
+extension GroupsViewModel {
     static func loadGroups(_ groupsRepository: GroupsRepositoryProtocol) -> Feedback<State, Event> {
         return Feedback { state -> SignalProducer<Event, NoError> in
             guard state == State.loading else { return .empty }
