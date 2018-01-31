@@ -2,14 +2,14 @@ import ReactiveSwift
 import ReactiveFeedback
 import enum Result.NoError
 
-struct GroupsScreenViewModel: ViewLifeCycleObservable {
+public struct GroupsScreenViewModel: ViewLifeCycleObservable {
 
-    let state: Property<State>
-    let route: Signal<Route, NoError>
+    public let state: Property<State>
+    public let route: Signal<Route, NoError>
     private let routeObserver: Signal<Route, NoError>.Observer
-    let viewLifecycle: MutableProperty<ViewLifeCycle>
+    public let viewLifecycle: MutableProperty<ViewLifeCycle>
 
-    init(groupsReposiotry: GroupsRepositoryProtocol) {
+    public init(groupsReposiotry: GroupsRepositoryProtocol) {
 
         let lifeCycle = MutableProperty<ViewLifeCycle>(.unknown)
         viewLifecycle = lifeCycle
@@ -25,13 +25,13 @@ struct GroupsScreenViewModel: ViewLifeCycleObservable {
     }
 }
 
-extension GroupsScreenViewModel {
+public extension GroupsScreenViewModel {
     enum State: Equatable {
         case initial
         case loading
         case loaded([Group])
 
-        static func == (lhs: State, rhs: State) -> Bool {
+        public static func == (lhs: State, rhs: State) -> Bool {
             switch(lhs, rhs) {
             case (.initial, .initial): return true
             case (.loading, .loading): return true

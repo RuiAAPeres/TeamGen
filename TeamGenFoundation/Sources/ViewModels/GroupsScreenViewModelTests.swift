@@ -2,7 +2,7 @@ import XCTest
 import Nimble
 import Disk
 import ReactiveSwift
-@testable import TeamGen
+@testable import TeamGenFoundation
 
 class GroupsScreenViewModelTests: XCTestCase {
 

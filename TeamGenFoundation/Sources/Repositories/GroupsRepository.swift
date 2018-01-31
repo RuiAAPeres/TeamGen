@@ -2,7 +2,7 @@
  import Result
  import Disk
 
- protocol GroupsRepositoryProtocol {
+ public protocol GroupsRepositoryProtocol {
     func groups() -> SignalProducer<[Group], CoreError>
     func group(withName name: String) -> SignalProducer<Group, CoreError>
     func delete(withName name: String) -> SignalProducer<Void, CoreError>
@@ -10,16 +10,16 @@
     func update(group: Group) -> SignalProducer<Group, CoreError>
  }
 
- struct GroupsRepository: GroupsRepositoryProtocol {
+ public struct GroupsRepository: GroupsRepositoryProtocol {
 
     private let filename: String
     private let queue = QueueScheduler()
 
-    init(filename: String = "groups.json") {
+    public init(filename: String = "groups.json") {
         self.filename = filename
     }
 
-    func groups() -> SignalProducer<[Group], CoreError> {
+    public func groups() -> SignalProducer<[Group], CoreError> {
         return SignalProducer {[filename] o, _ in
             do {
                 let group = try Disk.retrieve(filename, from: .applicationSupport, as: [Group].self)
@@ -38,7 +38,7 @@
             .start(on: queue)
     }
 
-    func group(withName name: String) -> SignalProducer<Group, CoreError> {
+    public func group(withName name: String) -> SignalProducer<Group, CoreError> {
         func findGroup(groups: [Group]) -> SignalProducer<Group, CoreError> {
             let filter: (Group) -> Bool = { $0.name == name }
 
@@ -54,7 +54,7 @@
             .start(on: queue)
     }
 
-    func insert(group: Group) -> SignalProducer<Group, CoreError> {
+    public func insert(group: Group) -> SignalProducer<Group, CoreError> {
         let alreadyExists: ([Group]) -> SignalProducer<[Group], CoreError> = { groups in
             guard groups.contains(group) == false else { return SignalProducer(error: CoreError.inserting("Already exists")) }
             return SignalProducer(value: groups)
@@ -67,15 +67,15 @@
 
         return
             SignalProducer(value: group)
-            .flatMap(.latest, sanityCheck)
-            .combineLatest(with: self.groups().flatMap(.latest, alreadyExists))
-            .map { return $0.1 + [$0.0] }
-            .flatMap(.latest, saveGroups)
-            .then(SignalProducer(value: group))
-            .start(on: queue)
+                .flatMap(.latest, sanityCheck)
+                .combineLatest(with: self.groups().flatMap(.latest, alreadyExists))
+                .map { return $0.1 + [$0.0] }
+                .flatMap(.latest, saveGroups)
+                .then(SignalProducer(value: group))
+                .start(on: queue)
     }
 
-    func delete(withName name: String) -> SignalProducer<Void, CoreError> {
+    public func delete(withName name: String) -> SignalProducer<Void, CoreError> {
 
         func removeGroup(groups: [Group]) -> [Group] {
             let filter: (Group) -> Bool = { $0.name != name }
@@ -89,7 +89,7 @@
             .start(on: queue)
     }
 
-    func update(group: Group) -> SignalProducer<Group, CoreError> {
+    public func update(group: Group) -> SignalProducer<Group, CoreError> {
         return delete(withName: group.name)
             .then(insert(group: group))
             .start(on: queue)

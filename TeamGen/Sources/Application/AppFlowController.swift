@@ -1,4 +1,5 @@
 import UIKit
+import TeamGenFoundation
 
 struct AppFlowController {
     private let builder: AppBuilder
@@ -13,4 +14,3 @@ struct AppFlowController {
         builder.makeGroupsScreen() |> flip(curry(flow.present))(true)
     }
 }
-

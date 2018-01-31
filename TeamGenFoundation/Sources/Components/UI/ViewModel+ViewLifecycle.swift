@@ -1,10 +1,10 @@
 import ReactiveSwift
 
-protocol ViewLifeCycleObservable {
+public protocol ViewLifeCycleObservable {
     var viewLifecycle: MutableProperty<ViewLifeCycle> { get }
 }
 
-enum ViewLifeCycle {
+public enum ViewLifeCycle {
     case unknown
     case didLoad
     case didAppear

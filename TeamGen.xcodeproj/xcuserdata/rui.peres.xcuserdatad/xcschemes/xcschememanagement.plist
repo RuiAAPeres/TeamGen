@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>TeamGenFoundation.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B21647132021E6EC000E7321</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B216471B2021E6EC000E7321</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2DBC5361F9BD0F0000F4AF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

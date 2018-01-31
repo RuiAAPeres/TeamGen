@@ -5,6 +5,6 @@ precedencegroup PipePrecedence {
 
 infix operator |> : PipePrecedence
 
-func |> <T, U>(x: T, f: (T) -> U) -> U {
+public func |> <T, U>(x: T, f: (T) -> U) -> U {
     return f(x)
 }

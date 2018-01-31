@@ -1,4 +1,5 @@
 import UIKit
+import TeamGenFoundation
 
 final class GroupsScreenViewController: UIViewController {
     private var viewModel: GroupsScreenViewModel!

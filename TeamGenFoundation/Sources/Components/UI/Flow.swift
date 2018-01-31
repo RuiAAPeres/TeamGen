@@ -1,6 +1,6 @@
 import UIKit
 
-protocol Flow {
+public protocol Flow {
     func present(_ viewController: UIViewController, animated: Bool)
     func dismiss(_ animated: Bool)
 }
@@ -54,13 +54,13 @@ private struct WindowFlow: Flow {
     }
 }
 
-extension UIWindow {
+public extension UIWindow {
     var flow: Flow {
         return WindowFlow(self)
     }
 }
 
-extension UIViewController {
+public extension UIViewController {
     var modalFlow: Flow {
         return ModalFlow(self)
     }

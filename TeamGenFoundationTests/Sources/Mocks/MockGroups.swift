@@ -1,4 +1,4 @@
-@testable import TeamGen
+@testable import TeamGenFoundation
 
 var group1: Group = {
     let spec1 = SkillSpec(name: "One skill", minValue: 0, maxValue: 5)

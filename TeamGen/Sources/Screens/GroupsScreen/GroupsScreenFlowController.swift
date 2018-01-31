@@ -1,3 +1,5 @@
+import TeamGenFoundation
+
 struct GroupsScreenFlowController {
 
     private let dependencies: AppDependencies

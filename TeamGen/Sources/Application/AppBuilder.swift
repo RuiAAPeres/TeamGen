@@ -1,4 +1,5 @@
 import UIKit
+import TeamGenFoundation
 
 struct AppBuilder {
     let dependencies: AppDependencies

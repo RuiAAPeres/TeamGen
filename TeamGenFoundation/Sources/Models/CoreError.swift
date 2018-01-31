@@ -1,6 +1,6 @@
-typealias Reason = String
+public typealias Reason = String
 
-enum CoreError: Error {
+public enum CoreError: Error {
     case inserting(Reason)
     case updating(Reason)
     case reading(Reason)
@@ -8,8 +8,7 @@ enum CoreError: Error {
 }
 
 extension CoreError: Equatable {
-
-    static func ==(lhs: CoreError, rhs: CoreError) -> Bool {
+    public static func ==(lhs: CoreError, rhs: CoreError) -> Bool {
         switch (lhs, rhs) {
         case let (.inserting(lhsReason), .inserting(rhsReason)):
             return lhsReason == rhsReason

@@ -1,5 +1,5 @@
 import ReactiveSwift
-@testable import TeamGen
+@testable import TeamGenFoundation
 
 struct GroupsRepositoryStub: GroupsRepositoryProtocol {
 

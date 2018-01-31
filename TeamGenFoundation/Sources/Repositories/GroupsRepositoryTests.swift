@@ -1,7 +1,8 @@
 import XCTest
 import Nimble
 import Disk
-@testable import TeamGen
+import Result
+@testable import TeamGenFoundation
 
 class GroupsRepositoryTests: XCTestCase {
 
@@ -52,4 +53,3 @@ class GroupsRepositoryTests: XCTestCase {
         expect(error).to(equal(CoreError.reading("Best group 1 not found")))
     }
 }
-
