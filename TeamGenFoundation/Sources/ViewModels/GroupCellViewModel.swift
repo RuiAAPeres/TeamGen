@@ -1,4 +1,8 @@
-public struct GroupCellViewModel {
+public protocol GroupCellViewModelRepresentable {
+    func selectGroup()
+}
+
+public struct GroupCellViewModel: GroupCellViewModelRepresentable {
     private let group: Group
     private let select: (Group) -> Void
 
@@ -7,7 +11,13 @@ public struct GroupCellViewModel {
         self.select = select
     }
 
-    public func didSelect() {
+    public func selectGroup() {
         select(group)
+    }
+}
+
+extension GroupCellViewModel: Equatable {
+    public static func ==(lhs: GroupCellViewModel, rhs: GroupCellViewModel) -> Bool {
+        return lhs.group == rhs.group
     }
 }

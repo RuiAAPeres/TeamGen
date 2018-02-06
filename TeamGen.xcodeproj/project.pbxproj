@@ -35,8 +35,9 @@
 		B21647632021FC43000E7321 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
 		B21647642021FC43000E7321 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
 		B2164769202201A7000E7321 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324881F9F99650083A1F9 /* Nimble.framework */; };
-		B21CE8CC2022043700039988 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B21CE8CB2022043700039988 /* Info.plist */; };
 		B21CE8CE202206E800039988 /* GroupCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CE8CD202206E800039988 /* GroupCellViewModel.swift */; };
+		B2478580202A23610048B80D /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247857F202A23610048B80D /* Relationship.swift */; };
+		B29D090D2022344F0031FF07 /* AddGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D090C2022344F0031FF07 /* AddGroupViewModel.swift */; };
 		B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */; };
 		B2DBC5571F9BD1D4000F4AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */; };
 		B2E3249C1F9F9B800083A1F9 /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
@@ -112,6 +113,8 @@
 		B216474F2021FBF6000E7321 /* GroupsViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsViewModelTests.swift; sourceTree = "<group>"; };
 		B21CE8CB2022043700039988 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B21CE8CD202206E800039988 /* GroupCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellViewModel.swift; sourceTree = "<group>"; };
+		B247857F202A23610048B80D /* Relationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
+		B29D090C2022344F0031FF07 /* AddGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewModel.swift; sourceTree = "<group>"; };
 		B2DBC5371F9BD0F0000F4AF9 /* TeamGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DBC54D1F9BD1A6000F4AF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2DBC54F1F9BD1A6000F4AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -247,6 +250,7 @@
 				B216473F2021FBF6000E7321 /* flip.swift */,
 				B21647402021FBF6000E7321 /* pipe.swift */,
 				B21647412021FBF6000E7321 /* ReactiveCocoa+Extensions.swift */,
+				B247857F202A23610048B80D /* Relationship.swift */,
 			);
 			path = Functional;
 			sourceTree = "<group>";
@@ -284,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				B216474E2021FBF6000E7321 /* GroupsViewModel.swift */,
+				B29D090C2022344F0031FF07 /* AddGroupViewModel.swift */,
 				B21CE8CD202206E800039988 /* GroupCellViewModel.swift */,
 				B216474F2021FBF6000E7321 /* GroupsViewModelTests.swift */,
 			);
@@ -528,7 +533,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B21CE8CC2022043700039988 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,11 +622,13 @@
 				B21647542021FBF6000E7321 /* Flow.swift in Sources */,
 				B21647512021FBF6000E7321 /* flip.swift in Sources */,
 				B21647502021FBF6000E7321 /* curry.swift in Sources */,
+				B29D090D2022344F0031FF07 /* AddGroupViewModel.swift in Sources */,
 				B216475C2021FBF6000E7321 /* GroupsViewModel.swift in Sources */,
 				B216475A2021FBF6000E7321 /* GroupsRepository.swift in Sources */,
 				B21647592021FBF6000E7321 /* Skill.swift in Sources */,
 				B21647582021FBF6000E7321 /* Player.swift in Sources */,
 				B21647522021FBF6000E7321 /* pipe.swift in Sources */,
+				B2478580202A23610048B80D /* Relationship.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

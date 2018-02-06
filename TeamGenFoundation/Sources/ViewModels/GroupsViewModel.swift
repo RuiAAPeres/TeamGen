@@ -2,26 +2,42 @@ import ReactiveSwift
 import ReactiveFeedback
 import enum Result.NoError
 
+
 public struct GroupsViewModel: ViewLifeCycleObservable {
 
     public let state: Property<State>
     public let route: Signal<Route, NoError>
-    private let routeObserver: Signal<Route, NoError>.Observer
     public let viewLifecycle: MutableProperty<ViewLifeCycle>
+    public let addGroupAction: SignalProducer<Void, NoError>
 
     public init(groupsReposiotry: GroupsRepositoryProtocol) {
 
         let lifeCycle = MutableProperty<ViewLifeCycle>(.unknown)
         viewLifecycle = lifeCycle
 
+        let (route, routeObserver) = Signal<Route, NoError>.pipe()
+        self.route = route
+
+        let (events, eventsObserver) = Signal<Event, NoError>.pipe()
+
+        self.addGroupAction = SignalProducer<Void, NoError>.action {
+            let addGroupRelationship = Relantionship<Event, AddGroupViewModel.State>(eventsObserver) { state in
+                switch state {
+                case .groupCreated: return .addedGroup
+                default: return nil
+                }
+            }
+
+            addGroupRelationship |> Route.addGroup |> routeObserver.send(value:)
+        }
+
         state = Property(initial: .initial,
                          reduce: GroupsViewModel.reducer,
                          feedbacks: [
+                            GroupsViewModel.addedGroup(events),
                             GroupsViewModel.readyToLoad(lifeCycle.producer),
-                            GroupsViewModel.loadGroups(groupsReposiotry)
+                            GroupsViewModel.loadGroups(groupsReposiotry, route: routeObserver)
             ])
-
-        (route, routeObserver) = Signal<Route, NoError>.pipe()
     }
 }
 
@@ -43,11 +59,21 @@ public extension GroupsViewModel {
 
     enum Event {
         case viewIsReady
+        case addedGroup
         case loaded([Group])
+
+        public static func == (lhs: Event, rhs: Event) -> Bool {
+            switch(lhs, rhs) {
+            case (.viewIsReady, .viewIsReady): return true
+            case (.addedGroup, .addedGroup): return true
+            case (let .loaded(lhsGroup), let .loaded(rhsGroup)): return lhsGroup == rhsGroup
+            default: return false
+            }
+        }
     }
 
     enum Route {
-        case addGroup
+        case addGroup(Relantionship<GroupsViewModel.Event, AddGroupViewModel.State>)
         case showDetail(Group)
     }
 }
@@ -61,18 +87,29 @@ extension GroupsViewModel {
                 return .loading
             case (_, let .loaded(groups)):
                 return .loaded(groups)
+            case (_, .addedGroup):
+                return .loading
             }
     }
 }
 
 extension GroupsViewModel {
-    static func loadGroups(_ groupsRepository: GroupsRepositoryProtocol) -> Feedback<State, Event> {
+    static func addedGroup(_ events: Signal<Event, NoError>) -> Feedback<State, Event> {
         return Feedback { state -> SignalProducer<Event, NoError> in
-            guard state == State.loading else { return .empty }
-            return groupsRepository.groups()
-                .map(Event.loaded)
-                .flatMapError { _ in .empty }
+            guard case .loaded = state else { return .empty }
+            return SignalProducer(events).filter { $0 == Event.addedGroup }
         }
+    }
+
+    static func loadGroups(_ groupsRepository: GroupsRepositoryProtocol,
+                           route: Signal<GroupsViewModel.Route, NoError>.Observer)
+        -> Feedback<State, Event> {
+            return Feedback { state -> SignalProducer<Event, NoError> in
+                guard state == State.loading else { return .empty }
+                return groupsRepository.groups()
+                    .map(Event.loaded)
+                    .flatMapError { _ in .empty }
+            }
     }
 
     static func readyToLoad(_ lifeCycle: SignalProducer<ViewLifeCycle, NoError>) -> Feedback<State, Event> {
@@ -80,7 +117,6 @@ extension GroupsViewModel {
             guard state == State.initial else { return .empty }
             return lifeCycle
                 .filter { $0 == .didLoad }
-                 // shouldn't be needed, since `.didLoad` by definition should be only sent once.
                 .take(first: 1)
                 .map { _ in Event.viewIsReady }
         }
