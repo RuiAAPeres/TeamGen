@@ -10,7 +10,7 @@ public struct GroupsViewModel: ViewLifeCycleObservable {
     public let viewLifecycle: MutableProperty<ViewLifeCycle>
     public let addGroupAction: SignalProducer<Void, NoError>
 
-    public init(groupsReposiotry: GroupsRepositoryProtocol) {
+    public init(groupsRepository: GroupsRepositoryProtocol) {
 
         let lifeCycle = MutableProperty<ViewLifeCycle>(.unknown)
         viewLifecycle = lifeCycle
@@ -18,12 +18,12 @@ public struct GroupsViewModel: ViewLifeCycleObservable {
         let (route, routeObserver) = Signal<Route, NoError>.pipe()
         self.route = route
 
-        let (events, eventsObserver) = Signal<Event, NoError>.pipe()
+        let (addGroupEvent, addGroupObserver) = Signal<Event, NoError>.pipe()
 
         self.addGroupAction = SignalProducer<Void, NoError>.action {
-            let addGroupRelationship = Relantionship<Event, AddGroupViewModel.State>(eventsObserver) { state in
+            let addGroupRelationship = Relantionship<Event, AddGroupViewModel.State>(addGroupObserver) { state in
                 switch state {
-                case .groupCreated: return .addedGroup
+                case let .groupCreated(group): return .saveGroup(group)
                 default: return nil
                 }
             }
@@ -34,9 +34,10 @@ public struct GroupsViewModel: ViewLifeCycleObservable {
         state = Property(initial: .initial,
                          reduce: GroupsViewModel.reducer,
                          feedbacks: [
-                            GroupsViewModel.addedGroup(events),
+                            GroupsViewModel.addGroupEventTrigger(addGroupEvent),
+                            GroupsViewModel.saveGroup(groupsRepository),
                             GroupsViewModel.readyToLoad(lifeCycle.producer),
-                            GroupsViewModel.loadGroups(groupsReposiotry, route: routeObserver)
+                            GroupsViewModel.loadGroups(groupsRepository)
             ])
     }
 }
@@ -45,13 +46,15 @@ public extension GroupsViewModel {
     enum State: Equatable {
         case initial
         case loading
-        case loaded([Group])
+        case savingGroup(Group)
+        case groupsReady([Group])
 
         public static func == (lhs: State, rhs: State) -> Bool {
             switch(lhs, rhs) {
             case (.initial, .initial): return true
             case (.loading, .loading): return true
-            case (let .loaded(lhsGroup), let .loaded(rhsGroup)): return lhsGroup == rhsGroup
+            case (let .savingGroup(lhsGroup), let .savingGroup(rhsGroup)): return lhsGroup == rhsGroup
+            case (let .groupsReady(lhsGroup), let .groupsReady(rhsGroup)): return lhsGroup == rhsGroup
             default: return false
             }
         }
@@ -59,14 +62,16 @@ public extension GroupsViewModel {
 
     enum Event {
         case viewIsReady
-        case addedGroup
-        case loaded([Group])
+        case reload
+        case saveGroup(Group)
+        case groupsReady([Group])
 
         public static func == (lhs: Event, rhs: Event) -> Bool {
             switch(lhs, rhs) {
             case (.viewIsReady, .viewIsReady): return true
-            case (.addedGroup, .addedGroup): return true
-            case (let .loaded(lhsGroup), let .loaded(rhsGroup)): return lhsGroup == rhsGroup
+            case (.reload, .reload): return true
+            case (let .saveGroup(lhsGroup), let .saveGroup(rhsGroup)): return lhsGroup == rhsGroup
+            case (let .groupsReady(lhsGroup), let .groupsReady(rhsGroup)): return lhsGroup == rhsGroup
             default: return false
             }
         }
@@ -79,35 +84,46 @@ public extension GroupsViewModel {
 }
 
 extension GroupsViewModel {
-    static func reducer(state: State,
-                        event: Event)
-        -> State {
+    static func reducer(state: State, event: Event) -> State {
             switch (state, event) {
             case (_, .viewIsReady):
                 return .loading
-            case (_, let .loaded(groups)):
-                return .loaded(groups)
-            case (_, .addedGroup):
+            case (_, let .groupsReady(groups)):
+                return .groupsReady(groups)
+            case (.groupsReady, let .saveGroup(group)):
+                return .savingGroup(group)
+            case (_ , .saveGroup):
+                return state
+            case (_, .reload):
                 return .loading
             }
     }
 }
 
 extension GroupsViewModel {
-    static func addedGroup(_ events: Signal<Event, NoError>) -> Feedback<State, Event> {
+
+    static func addGroupEventTrigger(_ event: Signal<Event, NoError>) -> Feedback<State, Event> {
         return Feedback { state -> SignalProducer<Event, NoError> in
-            guard case .loaded = state else { return .empty }
-            return SignalProducer(events).filter { $0 == Event.addedGroup }
+            guard case .groupsReady = state else { return .empty }
+            return SignalProducer(event)
         }
     }
 
-    static func loadGroups(_ groupsRepository: GroupsRepositoryProtocol,
-                           route: Signal<GroupsViewModel.Route, NoError>.Observer)
+    static func saveGroup(_ groupsRepository: GroupsRepositoryProtocol) -> Feedback<State, Event> {
+        return Feedback { state -> SignalProducer<Event, NoError> in
+            guard case let .savingGroup(group) = state else { return .empty }
+            return groupsRepository.insert(group: group)
+                .map { _ in Event.reload }
+                .flatMapError { _ in .empty }
+        }
+    }
+
+    static func loadGroups(_ groupsRepository: GroupsRepositoryProtocol)
         -> Feedback<State, Event> {
             return Feedback { state -> SignalProducer<Event, NoError> in
                 guard state == State.loading else { return .empty }
                 return groupsRepository.groups()
-                    .map(Event.loaded)
+                    .map(Event.groupsReady)
                     .flatMapError { _ in .empty }
             }
     }
