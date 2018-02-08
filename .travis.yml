@@ -1,8 +1,8 @@
 language: objective-c
 osx_image: xcode9
 script:
-    - xcodebuild clean test -workspace TeamGen.xcworkspace -scheme TeamGenFoundation -destination "platform=iOS Simulator,name=iPhone 7" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=O
-    - xcodebuild clean build -workspace TeamGen.xcworkspace -scheme TeamGen -destination "platform=iOS Simulator,name=iPhone 7" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=O
+    - xcodebuild clean test -workspace TeamGen.xcworkspace -scheme TeamGenFoundation -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 7" | xcpretty -c
+    - xcodebuild clean test -workspace TeamGen.xcworkspace -scheme TeamGen -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 7" | xcpretty -c
 before_install:
     - brew update
     - brew outdated carthage || brew upgrade carthage
