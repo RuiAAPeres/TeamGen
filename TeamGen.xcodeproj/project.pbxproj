@@ -37,6 +37,11 @@
 		B2164769202201A7000E7321 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324881F9F99650083A1F9 /* Nimble.framework */; };
 		B21CE8CE202206E800039988 /* GroupCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CE8CD202206E800039988 /* GroupCellViewModel.swift */; };
 		B2478580202A23610048B80D /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247857F202A23610048B80D /* Relationship.swift */; };
+		B2687674202C5F8500370F8A /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20873DA1FFD47ED007DDA89 /* Disk.framework */; };
+		B2687675202C5FF000370F8A /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
+		B2687676202C5FF000370F8A /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
+		B2687677202C5FF000370F8A /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
+		B2687678202C5FF000370F8A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
 		B29D090D2022344F0031FF07 /* AddGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D090C2022344F0031FF07 /* AddGroupViewModel.swift */; };
 		B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */; };
 		B2DBC5571F9BD1D4000F4AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */; };
@@ -150,6 +155,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2687675202C5FF000370F8A /* ReactiveCocoa.framework in Frameworks */,
+				B2687676202C5FF000370F8A /* ReactiveFeedback.framework in Frameworks */,
+				B2687677202C5FF000370F8A /* ReactiveSwift.framework in Frameworks */,
+				B2687678202C5FF000370F8A /* Result.framework in Frameworks */,
+				B2687674202C5F8500370F8A /* Disk.framework in Frameworks */,
 				B2164769202201A7000E7321 /* Nimble.framework in Frameworks */,
 				B216471D2021E6EC000E7321 /* TeamGenFoundation.framework in Frameworks */,
 			);
@@ -500,7 +510,6 @@
 					B216471B2021E6EC000E7321 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
-						TestTargetID = B2DBC5361F9BD0F0000F4AF9;
 					};
 					B2DBC5361F9BD0F0000F4AF9 = {
 						CreatedOnToolsVersion = 9.0;
@@ -580,6 +589,11 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveFeedback.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -750,7 +764,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamGen.app/TeamGen";
 			};
 			name = Debug;
 		};
@@ -770,7 +783,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamGen.app/TeamGen";
 			};
 			name = Release;
 		};
