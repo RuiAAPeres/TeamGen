@@ -17,8 +17,26 @@ public func generateTeams(_ allPlayers: [Player]) -> Teams {
             return (lhsTeam + [player], rhsTeam)
         }
     }
+    
+    func generateTeams(_ allPlayers: [Player]) -> [Teams] {
+        return (0...10000).map { _ in
+            allPlayers.shuffled().reduce(([], []), intoTwoTeams)
+        }
+    }
+    
+    func balanceTeam(first: Teams, second: Teams) -> Bool {
+        
+        func differenceSkill(_ teams: Teams) -> Double {
+            return abs(totalScore(teams.0) - totalScore(teams.1))
+        }
 
-    return allPlayers.shuffled().reduce(([], []), intoTwoTeams)
+        let firstBalance = differenceSkill(first)
+        let secondBalance = differenceSkill(second)
+        
+        return firstBalance < secondBalance
+    }
+
+    return generateTeams(allPlayers).sorted(by: balanceTeam).first!
 }
 
 private func totalScore(_ team: Team) -> Double {
