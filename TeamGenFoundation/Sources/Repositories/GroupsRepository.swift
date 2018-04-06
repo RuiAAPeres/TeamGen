@@ -117,7 +117,7 @@
         let players = group.players
 
         let reducer: (Bool, Player) -> Bool = { isValid, player in
-            let playerSkillSpecs = player.skills.flatMap { $0.spec }
+            let playerSkillSpecs = player.skills.compactMap { $0.spec }
             return isValid && playerSkillSpecs == skillSpecs
         }
 
