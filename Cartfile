@@ -1,4 +1,4 @@
 github "ReactiveCocoa/ReactiveCocoa" "7.1.0"
 github "Babylonpartners/ReactiveFeedback" ~> 0.2
 github "saoudrizwan/Disk"
-
+github "roberthein/TinyConstraints"

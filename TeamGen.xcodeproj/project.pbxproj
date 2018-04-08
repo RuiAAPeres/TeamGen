@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B20716B62077B9CF00340A01 /* TableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20716B52077B9CF00340A01 /* TableViewManager.swift */; };
 		B20873DB1FFD47ED007DDA89 /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20873DA1FFD47ED007DDA89 /* Disk.framework */; };
 		B20873DD1FFD4FE7007DDA89 /* AppBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */; };
 		B216471D2021E6EC000E7321 /* TeamGenFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21647142021E6EC000E7321 /* TeamGenFoundation.framework */; };
@@ -30,14 +31,11 @@
 		B216475E2021FBFD000E7321 /* GroupsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216474F2021FBF6000E7321 /* GroupsViewModelTests.swift */; };
 		B216475F2021FC01000E7321 /* GroupsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216474C2021FBF6000E7321 /* GroupsRepositoryTests.swift */; };
 		B21647602021FC43000E7321 /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20873DA1FFD47ED007DDA89 /* Disk.framework */; };
-		B21647612021FC43000E7321 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
 		B21647622021FC43000E7321 /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
 		B21647632021FC43000E7321 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
 		B21647642021FC43000E7321 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
 		B2164769202201A7000E7321 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324881F9F99650083A1F9 /* Nimble.framework */; };
 		B21CE8CE202206E800039988 /* GroupCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CE8CD202206E800039988 /* GroupCellViewModel.swift */; };
-		B227ED23204B50CA005E1518 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B227ED21204B509C005E1518 /* Material.framework */; };
-		B227ED24204B50CA005E1518 /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B227ED1F204B504F005E1518 /* Motion.framework */; };
 		B2478580202A23610048B80D /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247857F202A23610048B80D /* Relationship.swift */; };
 		B2687674202C5F8500370F8A /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20873DA1FFD47ED007DDA89 /* Disk.framework */; };
 		B2687675202C5FF000370F8A /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
@@ -55,6 +53,7 @@
 		B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51791F9BF80B00783ACB /* AppFlowController.swift */; };
 		B2EC51B41F9C155000783ACB /* GroupsScreenFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */; };
 		B2EC51B51F9C155000783ACB /* GroupsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */; };
+		B2ED5EFC2077B2B60037EB8E /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2ED5EFB2077B2B60037EB8E /* TinyConstraints.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +95,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B20716B52077B9CF00340A01 /* TableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewManager.swift; sourceTree = "<group>"; };
 		B20873DA1FFD47ED007DDA89 /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBuilder.swift; sourceTree = "<group>"; };
 		B21647142021E6EC000E7321 /* TeamGenFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TeamGenFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +141,7 @@
 		B2EC51791F9BF80B00783ACB /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
 		B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenFlowController.swift; sourceTree = "<group>"; };
 		B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreenViewController.swift; sourceTree = "<group>"; };
+		B2ED5EFB2077B2B60037EB8E /* TinyConstraints.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyConstraints.framework; path = Carthage/Build/iOS/TinyConstraints.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +150,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B21647602021FC43000E7321 /* Disk.framework in Frameworks */,
-				B21647612021FC43000E7321 /* ReactiveCocoa.framework in Frameworks */,
 				B21647622021FC43000E7321 /* ReactiveFeedback.framework in Frameworks */,
 				B21647632021FC43000E7321 /* ReactiveSwift.framework in Frameworks */,
 				B21647642021FC43000E7321 /* Result.framework in Frameworks */,
@@ -174,10 +174,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2ED5EFC2077B2B60037EB8E /* TinyConstraints.framework in Frameworks */,
 				B2CE96F02076648E00622953 /* ReactiveFeedback.framework in Frameworks */,
 				B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */,
-				B227ED23204B50CA005E1518 /* Material.framework in Frameworks */,
-				B227ED24204B50CA005E1518 /* Motion.framework in Frameworks */,
 				B20873DB1FFD47ED007DDA89 /* Disk.framework in Frameworks */,
 				B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */,
 				B21647292021E6EC000E7321 /* TeamGenFoundation.framework in Frameworks */,
@@ -415,6 +414,7 @@
 		B2EC516E1F9BEA8A00783ACB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2ED5EFB2077B2B60037EB8E /* TinyConstraints.framework */,
 				B227ED21204B509C005E1518 /* Material.framework */,
 				B227ED1F204B504F005E1518 /* Motion.framework */,
 				B20873DA1FFD47ED007DDA89 /* Disk.framework */,
@@ -434,6 +434,7 @@
 			children = (
 				B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */,
 				B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */,
+				B20716B52077B9CF00340A01 /* TableViewManager.swift */,
 			);
 			path = GroupsScreen;
 			sourceTree = "<group>";
@@ -517,7 +518,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Emergency Avocado";
 				TargetAttributes = {
 					B21647132021E6EC000E7321 = {
@@ -630,8 +631,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveFeedback.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Motion.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Material.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/TinyConstraints.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -685,6 +685,7 @@
 				B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */,
 				B2EC51781F9BF7B000783ACB /* AppDependencies.swift in Sources */,
 				B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */,
+				B20716B62077B9CF00340A01 /* TableViewManager.swift in Sources */,
 				B2EC51B51F9C155000783ACB /* GroupsScreenViewController.swift in Sources */,
 				B20873DD1FFD4FE7007DDA89 /* AppBuilder.swift in Sources */,
 				B2EC51B41F9C155000783ACB /* GroupsScreenFlowController.swift in Sources */,

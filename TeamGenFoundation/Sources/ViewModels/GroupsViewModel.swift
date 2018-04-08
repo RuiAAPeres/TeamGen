@@ -2,9 +2,7 @@ import ReactiveSwift
 import ReactiveFeedback
 import enum Result.NoError
 
-
 public struct GroupsViewModel: ViewLifeCycleObservable {
-
     public let state: Property<State>
     public let route: Signal<Route, NoError>
     public let viewLifecycle: MutableProperty<ViewLifeCycle>
@@ -31,50 +29,28 @@ public struct GroupsViewModel: ViewLifeCycleObservable {
             addGroupRelationship |> Route.addGroup |> routeObserver.send(value:)
         }
 
-        state = Property(initial: .initial,
+        state = Property(initial: .loading,
                          reduce: GroupsViewModel.reducer,
                          feedbacks: [
                             GroupsViewModel.addGroupEventTrigger(addGroupEvent),
                             GroupsViewModel.saveGroup(groupsRepository),
-                            GroupsViewModel.readyToLoad(lifeCycle.producer),
-                            GroupsViewModel.loadGroups(groupsRepository)
+                            GroupsViewModel.loadGroups(groupsRepository, lifeCycle.producer)
             ])
     }
 }
 
 public extension GroupsViewModel {
     enum State: Equatable {
-        case initial
         case loading
         case savingGroup(Group)
         case groupsReady([Group])
-
-        public static func == (lhs: State, rhs: State) -> Bool {
-            switch(lhs, rhs) {
-            case (.initial, .initial): return true
-            case (.loading, .loading): return true
-            case (let .savingGroup(lhsGroup), let .savingGroup(rhsGroup)): return lhsGroup == rhsGroup
-            case (let .groupsReady(lhsGroup), let .groupsReady(rhsGroup)): return lhsGroup == rhsGroup
-            default: return false
-            }
-        }
     }
 
-    enum Event {
+    enum Event: Equatable {
         case viewIsReady
         case reload
         case saveGroup(Group)
         case groupsReady([Group])
-
-        public static func == (lhs: Event, rhs: Event) -> Bool {
-            switch(lhs, rhs) {
-            case (.viewIsReady, .viewIsReady): return true
-            case (.reload, .reload): return true
-            case (let .saveGroup(lhsGroup), let .saveGroup(rhsGroup)): return lhsGroup == rhsGroup
-            case (let .groupsReady(lhsGroup), let .groupsReady(rhsGroup)): return lhsGroup == rhsGroup
-            default: return false
-            }
-        }
     }
 
     enum Route {
@@ -118,23 +94,18 @@ extension GroupsViewModel {
         }
     }
 
-    static func loadGroups(_ groupsRepository: GroupsRepositoryProtocol)
+    static func loadGroups(_ groupsRepository: GroupsRepositoryProtocol,
+                           _ lifeCycle: SignalProducer<ViewLifeCycle, NoError>)
         -> Feedback<State, Event> {
             return Feedback { state -> SignalProducer<Event, NoError> in
                 guard state == State.loading else { return .empty }
-                return groupsRepository.groups()
-                    .map(Event.groupsReady)
-                    .flatMapError { _ in .empty }
+                return lifeCycle
+                    .filter { $0 == .didLoad }
+                    .flatMap(.latest) { _ in
+                        groupsRepository.groups()
+                        .map(Event.groupsReady)
+                        .flatMapError { _ in .empty }
+                    }
             }
-    }
-
-    static func readyToLoad(_ lifeCycle: SignalProducer<ViewLifeCycle, NoError>) -> Feedback<State, Event> {
-        return Feedback { state -> SignalProducer<Event, NoError> in
-            guard state == State.initial else { return .empty }
-            return lifeCycle
-                .filter { $0 == .didLoad }
-                .take(first: 1)
-                .map { _ in Event.viewIsReady }
-        }
     }
 }

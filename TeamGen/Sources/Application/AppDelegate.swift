@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
         -> Bool {
 
-            let dependencies = AppDependencies(window: window, bundle: Bundle.main)
+            let dependencies = AppDependencies(window: window)
             let appBuilder = AppBuilder(dependencies: dependencies)
 
             let flowController = AppFlowController(flow: window.flow, builder: appBuilder)

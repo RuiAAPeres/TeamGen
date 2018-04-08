@@ -1,4 +1,4 @@
-public struct Player: Codable {
+public struct Player: Codable, Equatable {
     public let name: String
     public let skills: [Skill]
 
@@ -13,12 +13,5 @@ public struct Player: Codable {
         }
 
         return skills.reduce(0.0, reducer)
-    }
-}
-
-extension Player: Equatable {
-   public static func ==(lhs: Player, rhs: Player) -> Bool {
-        return lhs.name == rhs.name &&
-            lhs.skills == rhs.skills
     }
 }

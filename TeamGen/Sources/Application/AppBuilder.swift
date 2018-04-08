@@ -7,14 +7,13 @@ struct AppBuilder {
     func makeGroupsScreen() -> UIViewController {
         let groupsRepository = GroupsRepository()
         let viewModel = GroupsViewModel(groupsRepository: groupsRepository)
-        let viewController = GroupsScreenViewController()
+        let viewController = GroupsScreenViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)
 
         let flowController = GroupsScreenFlowController(dependencies: dependencies,
                                                         modal: viewController.modalFlow,
                                                         navigation: navigationController.navigationFlow)
 
-        viewController.setup(with: viewModel)
         viewModel.route.observeValues(flowController.observe)
 
         return navigationController
