@@ -15,7 +15,7 @@ struct GroupsScreenFlowController {
     func observe(route: GroupsViewModel.Route) {
         switch route {
         case .addGroup: break
-        case let .showDetail(group): break
+        case .showDetail(_): break
         }
     }
 }

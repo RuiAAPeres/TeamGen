@@ -5,14 +5,14 @@ import enum Result.NoError
 public final class TableViewManager<T: Equatable>: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     private let dataSource: Property<ViewState<T>>
-    private let generator: (ViewState<T>, IndexPath) -> UITableViewCell
+    private let generator: (ViewState<T>, IndexPath, UITableView) -> UITableViewCell
     private let didTapCellObserver: Signal<(ViewState<T>, IndexPath), NoError>.Observer
     
     public let didTapCell: Signal<(ViewState<T>, IndexPath), NoError>
     
     public init(tableView: UITableView,
                 dataSource: Property<ViewState<T>>,
-                generator: @escaping (ViewState<T>, IndexPath) -> UITableViewCell) {
+                generator: @escaping (ViewState<T>, IndexPath, UITableView) -> UITableViewCell) {
         self.dataSource = dataSource
         self.generator = generator
         (didTapCell, didTapCellObserver) = Signal<(ViewState<T>, IndexPath), NoError>.pipe()
@@ -38,7 +38,7 @@ public final class TableViewManager<T: Equatable>: NSObject, UITableViewDataSour
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return generator(self.dataSource.value, indexPath)
+        return generator(self.dataSource.value, indexPath, tableView)
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -14,7 +14,9 @@ final class GroupsScreenViewController: UIViewController {
             dataSource: viewModel.state.map(GroupsScreen.toViewState),
             generator: GroupsScreen.generator)
         
-        super.init(nibName: nil, bundle: nil)
+        GroupsScreen.registerCells(tableView: tableView)
+
+        super.init(nibName: nil, bundle: nil)        
     }
     
     @available(*, unavailable)
