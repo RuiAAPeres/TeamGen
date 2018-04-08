@@ -45,7 +45,8 @@
 		B27DDD2A207A6B2F00ABB4D9 /* GroupsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27DDD29207A6B2F00ABB4D9 /* GroupsScreen.swift */; };
 		B27DDD2E207A72E900ABB4D9 /* TableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27DDD2D207A72E900ABB4D9 /* TableViewManager.swift */; };
 		B27DDD30207A739500ABB4D9 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27DDD2F207A739500ABB4D9 /* ViewState.swift */; };
-		B27DDD32207A743300ABB4D9 /* AddGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27DDD31207A743300ABB4D9 /* AddGroup.swift */; };
+		B27DDD37207AA15800ABB4D9 /* GenericTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27DDD36207AA15800ABB4D9 /* GenericTableViewCell.swift */; };
+		B27DDD3B207AA50200ABB4D9 /* AddGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27DDD3A207AA50100ABB4D9 /* AddGroup.swift */; };
 		B281C3EB20642A1500A314F7 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281C3EA20642A1500A314F7 /* Generator.swift */; };
 		B29D090D2022344F0031FF07 /* AddGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D090C2022344F0031FF07 /* AddGroupViewModel.swift */; };
 		B2CE96F02076648E00622953 /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
@@ -130,7 +131,8 @@
 		B27DDD29207A6B2F00ABB4D9 /* GroupsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreen.swift; sourceTree = "<group>"; };
 		B27DDD2D207A72E900ABB4D9 /* TableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewManager.swift; sourceTree = "<group>"; };
 		B27DDD2F207A739500ABB4D9 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
-		B27DDD31207A743300ABB4D9 /* AddGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroup.swift; sourceTree = "<group>"; };
+		B27DDD36207AA15800ABB4D9 /* GenericTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewCell.swift; sourceTree = "<group>"; };
+		B27DDD3A207AA50100ABB4D9 /* AddGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroup.swift; sourceTree = "<group>"; };
 		B281C3EA20642A1500A314F7 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		B29D090C2022344F0031FF07 /* AddGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewModel.swift; sourceTree = "<group>"; };
 		B2DBC5371F9BD0F0000F4AF9 /* TeamGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +284,7 @@
 		B21647422021FBF6000E7321 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B27DDD36207AA15800ABB4D9 /* GenericTableViewCell.swift */,
 				B27DDD2D207A72E900ABB4D9 /* TableViewManager.swift */,
 				B27DDD2F207A739500ABB4D9 /* ViewState.swift */,
 				B21647432021FBF6000E7321 /* Flow.swift */,
@@ -327,6 +330,21 @@
 				B21CE8CB2022043700039988 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B27DDD38207AA50100ABB4D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B27DDD39207AA50100ABB4D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B27DDD3A207AA50100ABB4D9 /* AddGroup.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B281C3E9206429F800A314F7 /* Generator */ = {
@@ -443,10 +461,11 @@
 			isa = PBXGroup;
 			children = (
 				B27DDD29207A6B2F00ABB4D9 /* GroupsScreen.swift */,
-				B27DDD31207A743300ABB4D9 /* AddGroup.swift */,
 				B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */,
 				B2EC51981F9C0AEC00783ACB /* GroupsScreenViewController.swift */,
 				B27DDD27207A643800ABB4D9 /* GroupViewModel.swift */,
+				B27DDD39207AA50100ABB4D9 /* Models */,
+				B27DDD38207AA50100ABB4D9 /* Views */,
 			);
 			path = GroupsScreen;
 			sourceTree = "<group>";
@@ -671,6 +690,7 @@
 				B21647502021FBF6000E7321 /* curry.swift in Sources */,
 				B29D090D2022344F0031FF07 /* AddGroupViewModel.swift in Sources */,
 				B216475C2021FBF6000E7321 /* GroupsViewModel.swift in Sources */,
+				B27DDD37207AA15800ABB4D9 /* GenericTableViewCell.swift in Sources */,
 				B216475A2021FBF6000E7321 /* GroupsRepository.swift in Sources */,
 				B21647592021FBF6000E7321 /* Skill.swift in Sources */,
 				B27DDD30207A739500ABB4D9 /* ViewState.swift in Sources */,
@@ -699,7 +719,7 @@
 				B27DDD28207A643800ABB4D9 /* GroupViewModel.swift in Sources */,
 				B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */,
 				B2EC51781F9BF7B000783ACB /* AppDependencies.swift in Sources */,
-				B27DDD32207A743300ABB4D9 /* AddGroup.swift in Sources */,
+				B27DDD3B207AA50200ABB4D9 /* AddGroup.swift in Sources */,
 				B27DDD2A207A6B2F00ABB4D9 /* GroupsScreen.swift in Sources */,
 				B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */,
 				B2EC51B51F9C155000783ACB /* GroupsScreenViewController.swift in Sources */,

@@ -46,3 +46,5 @@ final class GroupsScreenViewController: UIViewController {
         viewModel.viewLifecycle.value = .didDisappear
     }
 }
+
+
