@@ -2,11 +2,28 @@ import ReactiveSwift
 import ReactiveFeedback
 import enum Result.NoError
 
-protocol GroupsViewModelProtocol: ViewLifeCycleObservable {
+public protocol GroupsViewModelProtocol: ViewLifeCycleObservable {
     var state: Property<GroupsViewModel.State> { get }
     var route: Signal<GroupsViewModel.Route, NoError> { get }
     var viewLifecycle: MutableProperty<ViewLifeCycle> { get }
     var addGroupAction: SignalProducer<Void, NoError> { get }
+}
+
+public struct Dummy_GroupsViewModel: GroupsViewModelProtocol {
+    public var state: Property<GroupsViewModel.State>
+    public let route: Signal<GroupsViewModel.Route, NoError>
+    public let viewLifecycle: MutableProperty<ViewLifeCycle>
+    public let addGroupAction: SignalProducer<Void, NoError>
+
+    public init(state: Property<GroupsViewModel.State> = Property(value: .loading),
+         route: Signal<GroupsViewModel.Route, NoError> = Signal.empty,
+         viewLifecycle: MutableProperty<ViewLifeCycle> = MutableProperty(.unknown),
+         addGroupAction: SignalProducer<Void, NoError> = SignalProducer.empty) {
+        self.state = state
+        self.route = route
+        self.viewLifecycle = viewLifecycle
+        self .addGroupAction = addGroupAction
+    }
 }
 
 public struct GroupsViewModel: GroupsViewModelProtocol {

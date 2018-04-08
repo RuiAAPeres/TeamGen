@@ -3,20 +3,20 @@ import TeamGenFoundation
 import TinyConstraints
 
 final class GroupsScreenViewController: UIViewController {
-    private var viewModel: GroupsViewModel!
+    private var viewModel: GroupsViewModelProtocol!
     private var tableView = UITableView.init(frame: .zero, style: .grouped)
     private var tableViewManager: TableViewManager<GroupCellViewModel>
 
-    public init(viewModel: GroupsViewModel) {
+    public init(viewModel: GroupsViewModelProtocol) {
+        GroupsScreen.registerCells(tableView: tableView)
+
         self.viewModel = viewModel
         self.tableViewManager = TableViewManager<GroupCellViewModel>(
             tableView: tableView,
             dataSource: viewModel.state.map(GroupsScreen.toViewState),
             generator: GroupsScreen.generator)
-        
-        GroupsScreen.registerCells(tableView: tableView)
 
-        super.init(nibName: nil, bundle: nil)        
+        super.init(nibName: nil, bundle: nil)
     }
     
     @available(*, unavailable)

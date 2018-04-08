@@ -26,6 +26,11 @@ public extension UITableView {
 
 public final class GenericTableCell<CustomView>: UITableViewCell where CustomView: UIView {
     @available(*, unavailable)
+    
+    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
