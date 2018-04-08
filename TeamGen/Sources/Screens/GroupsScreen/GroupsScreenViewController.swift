@@ -5,19 +5,20 @@ import TinyConstraints
 final class GroupsScreenViewController: UIViewController {
     private var viewModel: GroupsViewModel!
     private var tableView = UITableView.init(frame: .zero, style: .grouped)
-    
+    private var tableViewManager: TableViewManager<GroupCellViewModel>
+
     public init(viewModel: GroupsViewModel) {
         self.viewModel = viewModel
+        self.tableViewManager = TableViewManager<GroupCellViewModel>(
+            dataSource: viewModel.state.map(GroupsScreen.toViewState),
+            generator: GroupsScreen.generator)
+        
         super.init(nibName: nil, bundle: nil)
     }
     
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
     }
     
     override func loadView() {
