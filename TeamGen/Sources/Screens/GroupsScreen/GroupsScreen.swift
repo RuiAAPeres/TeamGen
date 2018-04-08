@@ -33,8 +33,8 @@ enum GroupsScreen {
                        groupCellViewModel: GroupCellViewModel) -> UITableViewCell {
         
         switch groupCellViewModel {
-        case let .group(groupDigestViewModel):
-            let view = GroupDigestView(group: groupDigestViewModel, frame: CGRect.init(x: 0, y: 0, width: 50, height: 50))
+        case let .group(viewModel):
+            let view = GroupDigestView(with: viewModel)
             
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath)
                 as GenericTableCell<GroupDigestView>
