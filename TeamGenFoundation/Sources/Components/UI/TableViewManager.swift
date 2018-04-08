@@ -10,12 +10,22 @@ public final class TableViewManager<T: Equatable>: NSObject, UITableViewDataSour
     
     public let didTapCell: Signal<(ViewState<T>, IndexPath), NoError>
     
-    public init(dataSource: Property<ViewState<T>>,
-         generator: @escaping (ViewState<T>, IndexPath) -> UITableViewCell) {
+    public init(tableView: UITableView,
+                dataSource: Property<ViewState<T>>,
+                generator: @escaping (ViewState<T>, IndexPath) -> UITableViewCell) {
         self.dataSource = dataSource
         self.generator = generator
         (didTapCell, didTapCellObserver) = Signal<(ViewState<T>, IndexPath), NoError>.pipe()
+        
         super.init()
+        
+        dataSource.signal
+            .observe(on: UIScheduler())
+            .discardValues()
+            .injectSideEffect(tableView.reloadData)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

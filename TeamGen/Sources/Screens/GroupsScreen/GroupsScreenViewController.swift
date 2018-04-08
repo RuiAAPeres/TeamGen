@@ -10,6 +10,7 @@ final class GroupsScreenViewController: UIViewController {
     public init(viewModel: GroupsViewModel) {
         self.viewModel = viewModel
         self.tableViewManager = TableViewManager<GroupCellViewModel>(
+            tableView: tableView,
             dataSource: viewModel.state.map(GroupsScreen.toViewState),
             generator: GroupsScreen.generator)
         
