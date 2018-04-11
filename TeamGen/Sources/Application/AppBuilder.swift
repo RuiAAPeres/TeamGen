@@ -7,9 +7,9 @@ struct AppBuilder {
 
     func makeGroupsScreen() -> UIViewController {
         let groupsRepository = GroupsRepository()
-//        let viewModel = GroupsViewModel(groupsRepository: groupsRepository)
-        let group = Group(name: "A group", players: [], skillSpec: [])
-        let viewModel = Dummy_GroupsViewModel(state: Property(value: .loading))
+        let viewModel = GroupsViewModel(groupsRepository: groupsRepository)
+//        let group = Group(name: "A group", players: [], skillSpec: [])
+//        let viewModel = Dummy_GroupsViewModel(state: Property(value: .loading))
         
         let viewController = GroupsScreenViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)

@@ -11,20 +11,16 @@ final class SpinnerView: UIView, ReusableView {
     
     init() {
         super.init(frame: .zero)
+        setupSubViews()
+    }
+    
+    private func setupSubViews() {
         let spinner = UIActivityIndicatorView()
         spinner.activityIndicatorViewStyle = .gray
         
         spinner.startAnimating()
         
-        self.addSubview(spinner)
-        spinner.centerInSuperview(usingSafeArea: true)
-    }
-    
-    private func setupSubViews(with viewModel: AddGroupViewModel) {
-        let addButton = UIButton()
-        addButton.setTitle(viewModel.title, for: .normal)
-        
-        let content = UIStackView(arrangedSubviews: [addButton])
+        let content = UIStackView(arrangedSubviews: [spinner])
         content.alignment = .center
         content.axis = .horizontal
         content.distribution = .fillProportionally
