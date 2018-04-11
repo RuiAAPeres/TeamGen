@@ -11,7 +11,7 @@ public extension UIView {
 
 public protocol Configure {}
 
-public extension Configure where Self: AnyObject {
+public extension Configure where Self: UIView {
     @discardableResult public func configure(_ configuration: (Self) -> Void) -> Self {
         configuration(self)
         return self
