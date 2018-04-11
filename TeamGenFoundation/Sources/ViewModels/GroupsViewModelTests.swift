@@ -7,8 +7,8 @@ import ReactiveSwift
 class GroupsViewModelTests: XCTestCase {
 
     func test_StateMachine() {
-        expect(GroupsViewModel.reducer(state: .initial, event: .groupsReady([]))).to(equal(GroupsViewModel.State.groupsReady([])))
-        expect(GroupsViewModel.reducer(state: .initial, event: .viewIsReady)).to(equal(GroupsViewModel.State.loading))
+        expect(GroupsViewModel.reducer(state: .loading, event: .groupsReady([]))).to(equal(GroupsViewModel.State.groupsReady([])))
+        expect(GroupsViewModel.reducer(state: .loading, event: .viewIsReady)).to(equal(GroupsViewModel.State.loading))
 
         expect(GroupsViewModel.reducer(state: .groupsReady([]), event: .groupsReady([group1]))).to(equal(GroupsViewModel.State.groupsReady([group1])))
         expect(GroupsViewModel.reducer(state: .groupsReady([]), event: .viewIsReady)).to(equal(GroupsViewModel.State.loading))
@@ -26,7 +26,7 @@ class GroupsViewModelTests: XCTestCase {
         let viewModel = GroupsViewModel(groupsRepository: stub)
 
         expect(viewModel.viewLifecycle.value).to(equal(ViewLifeCycle.unknown))
-        expect(viewModel.state.value).to(equal(GroupsViewModel.State.initial))
+        expect(viewModel.state.value).to(equal(GroupsViewModel.State.loading))
     }
 
     func test_ViewModel_FetchGroups_When_ViewDidLoad() {
@@ -46,6 +46,6 @@ class GroupsViewModelTests: XCTestCase {
         let viewModel = GroupsViewModel(groupsRepository: stub)
 
         viewModel.viewLifecycle.value = .didAppear
-        expect(viewModel.state.value).toEventually(equal(GroupsViewModel.State.initial))
+        expect(viewModel.state.value).toEventually(equal(GroupsViewModel.State.loading))
     }
 }

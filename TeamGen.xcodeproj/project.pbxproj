@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B20873DB1FFD47ED007DDA89 /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20873DA1FFD47ED007DDA89 /* Disk.framework */; };
 		B20873DD1FFD4FE7007DDA89 /* AppBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */; };
 		B216471D2021E6EC000E7321 /* TeamGenFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21647142021E6EC000E7321 /* TeamGenFoundation.framework */; };
 		B21647292021E6EC000E7321 /* TeamGenFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21647142021E6EC000E7321 /* TeamGenFoundation.framework */; };
@@ -15,9 +14,6 @@
 		B21647382021FBE7000E7321 /* MockGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21647332021FBE7000E7321 /* MockGroups.swift */; };
 		B21647392021FBE7000E7321 /* GroupsRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21647352021FBE7000E7321 /* GroupsRepositoryStub.swift */; };
 		B216473A2021FBE7000E7321 /* Files+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21647372021FBE7000E7321 /* Files+Util.swift */; };
-		B21647502021FBF6000E7321 /* curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216473E2021FBF6000E7321 /* curry.swift */; };
-		B21647512021FBF6000E7321 /* flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216473F2021FBF6000E7321 /* flip.swift */; };
-		B21647522021FBF6000E7321 /* pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21647402021FBF6000E7321 /* pipe.swift */; };
 		B21647532021FBF6000E7321 /* ReactiveCocoa+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21647412021FBF6000E7321 /* ReactiveCocoa+Extensions.swift */; };
 		B21647542021FBF6000E7321 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21647432021FBF6000E7321 /* Flow.swift */; };
 		B21647552021FBF6000E7321 /* ViewModel+ViewLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21647442021FBF6000E7321 /* ViewModel+ViewLifecycle.swift */; };
@@ -47,14 +43,16 @@
 		B27DDD30207A739500ABB4D9 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27DDD2F207A739500ABB4D9 /* ViewState.swift */; };
 		B27DDD37207AA15800ABB4D9 /* GenericTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27DDD36207AA15800ABB4D9 /* GenericTableViewCell.swift */; };
 		B27DDD3F207AA5F800ABB4D9 /* GroupDigestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27DDD3E207AA5F800ABB4D9 /* GroupDigestView.swift */; };
-		B27DDD41207AABE100ABB4D9 /* composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27DDD40207AABE100ABB4D9 /* composition.swift */; };
 		B281C3EB20642A1500A314F7 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281C3EA20642A1500A314F7 /* Generator.swift */; };
+		B28A8EC1207CF8560069A173 /* Overture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28A8EC0207CF8550069A173 /* Overture.framework */; };
+		B28A8EC3207D10180069A173 /* Overture+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A8EC2207D10180069A173 /* Overture+Operators.swift */; };
+		B28A8EC4207D23F50069A173 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51701F9BEA8A00783ACB /* ReactiveCocoa.framework */; };
+		B28A8EC5207D250C0069A173 /* Overture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28A8EC0207CF8550069A173 /* Overture.framework */; };
+		B28A8EC6207D26270069A173 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
+		B28A8EC7207D26280069A173 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
 		B29D090D2022344F0031FF07 /* AddGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D090C2022344F0031FF07 /* AddGroupViewModel.swift */; };
-		B2CE96F02076648E00622953 /* ReactiveFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E324941F9F9A9D0083A1F9 /* ReactiveFeedback.framework */; };
 		B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC5521F9BD1A6000F4AF9 /* AppDelegate.swift */; };
 		B2DBC5571F9BD1D4000F4AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DBC5551F9BD1A6000F4AF9 /* LaunchScreen.storyboard */; };
-		B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC516F1F9BEA8A00783ACB /* Result.framework */; };
-		B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EC51721F9BEA8A00783ACB /* ReactiveSwift.framework */; };
 		B2EC51781F9BF7B000783ACB /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51771F9BF7B000783ACB /* AppDependencies.swift */; };
 		B2EC517A1F9BF80B00783ACB /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51791F9BF80B00783ACB /* AppFlowController.swift */; };
 		B2EC51B41F9C155000783ACB /* GroupsScreenFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC51971F9C0AEC00783ACB /* GroupsScreenFlowController.swift */; };
@@ -109,9 +107,6 @@
 		B21647332021FBE7000E7321 /* MockGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockGroups.swift; sourceTree = "<group>"; };
 		B21647352021FBE7000E7321 /* GroupsRepositoryStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsRepositoryStub.swift; sourceTree = "<group>"; };
 		B21647372021FBE7000E7321 /* Files+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Files+Util.swift"; sourceTree = "<group>"; };
-		B216473E2021FBF6000E7321 /* curry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = curry.swift; sourceTree = "<group>"; };
-		B216473F2021FBF6000E7321 /* flip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flip.swift; sourceTree = "<group>"; };
-		B21647402021FBF6000E7321 /* pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pipe.swift; sourceTree = "<group>"; };
 		B21647412021FBF6000E7321 /* ReactiveCocoa+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReactiveCocoa+Extensions.swift"; sourceTree = "<group>"; };
 		B21647432021FBF6000E7321 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		B21647442021FBF6000E7321 /* ViewModel+ViewLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewModel+ViewLifecycle.swift"; sourceTree = "<group>"; };
@@ -134,8 +129,9 @@
 		B27DDD2F207A739500ABB4D9 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		B27DDD36207AA15800ABB4D9 /* GenericTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewCell.swift; sourceTree = "<group>"; };
 		B27DDD3E207AA5F800ABB4D9 /* GroupDigestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDigestView.swift; sourceTree = "<group>"; };
-		B27DDD40207AABE100ABB4D9 /* composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = composition.swift; sourceTree = "<group>"; };
 		B281C3EA20642A1500A314F7 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		B28A8EC0207CF8550069A173 /* Overture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Overture.framework; path = Carthage/Build/iOS/Overture.framework; sourceTree = "<group>"; };
+		B28A8EC2207D10180069A173 /* Overture+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Overture+Operators.swift"; sourceTree = "<group>"; };
 		B29D090C2022344F0031FF07 /* AddGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewModel.swift; sourceTree = "<group>"; };
 		B2DBC5371F9BD0F0000F4AF9 /* TeamGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DBC54D1F9BD1A6000F4AF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28A8EC1207CF8560069A173 /* Overture.framework in Frameworks */,
 				B21647602021FC43000E7321 /* Disk.framework in Frameworks */,
 				B21647622021FC43000E7321 /* ReactiveFeedback.framework in Frameworks */,
 				B21647632021FC43000E7321 /* ReactiveSwift.framework in Frameworks */,
@@ -186,11 +183,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28A8EC6207D26270069A173 /* ReactiveSwift.framework in Frameworks */,
+				B28A8EC7207D26280069A173 /* Result.framework in Frameworks */,
+				B28A8EC5207D250C0069A173 /* Overture.framework in Frameworks */,
+				B28A8EC4207D23F50069A173 /* ReactiveCocoa.framework in Frameworks */,
 				B2ED5EFC2077B2B60037EB8E /* TinyConstraints.framework in Frameworks */,
-				B2CE96F02076648E00622953 /* ReactiveFeedback.framework in Frameworks */,
-				B2EC51761F9BEA8A00783ACB /* ReactiveSwift.framework in Frameworks */,
-				B20873DB1FFD47ED007DDA89 /* Disk.framework in Frameworks */,
-				B2EC51731F9BEA8A00783ACB /* Result.framework in Frameworks */,
 				B21647292021E6EC000E7321 /* TeamGenFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,10 +271,7 @@
 		B216473D2021FBF6000E7321 /* Functional */ = {
 			isa = PBXGroup;
 			children = (
-				B27DDD40207AABE100ABB4D9 /* composition.swift */,
-				B216473E2021FBF6000E7321 /* curry.swift */,
-				B216473F2021FBF6000E7321 /* flip.swift */,
-				B21647402021FBF6000E7321 /* pipe.swift */,
+				B28A8EC2207D10180069A173 /* Overture+Operators.swift */,
 				B21647412021FBF6000E7321 /* ReactiveCocoa+Extensions.swift */,
 				B247857F202A23610048B80D /* Relationship.swift */,
 			);
@@ -438,6 +432,7 @@
 		B2EC516E1F9BEA8A00783ACB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B28A8EC0207CF8550069A173 /* Overture.framework */,
 				B2ED5EFB2077B2B60037EB8E /* TinyConstraints.framework */,
 				B227ED21204B509C005E1518 /* Material.framework */,
 				B227ED1F204B504F005E1518 /* Motion.framework */,
@@ -618,6 +613,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveFeedback.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Overture.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -652,12 +648,11 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReactiveFeedback.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TinyConstraints.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Overture.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -681,17 +676,14 @@
 				B21647532021FBF6000E7321 /* ReactiveCocoa+Extensions.swift in Sources */,
 				B21647572021FBF6000E7321 /* Group.swift in Sources */,
 				B21647542021FBF6000E7321 /* Flow.swift in Sources */,
-				B21647512021FBF6000E7321 /* flip.swift in Sources */,
-				B21647502021FBF6000E7321 /* curry.swift in Sources */,
+				B28A8EC3207D10180069A173 /* Overture+Operators.swift in Sources */,
 				B29D090D2022344F0031FF07 /* AddGroupViewModel.swift in Sources */,
 				B216475C2021FBF6000E7321 /* GroupsViewModel.swift in Sources */,
 				B27DDD37207AA15800ABB4D9 /* GenericTableViewCell.swift in Sources */,
 				B216475A2021FBF6000E7321 /* GroupsRepository.swift in Sources */,
-				B27DDD41207AABE100ABB4D9 /* composition.swift in Sources */,
 				B21647592021FBF6000E7321 /* Skill.swift in Sources */,
 				B27DDD30207A739500ABB4D9 /* ViewState.swift in Sources */,
 				B21647582021FBF6000E7321 /* Player.swift in Sources */,
-				B21647522021FBF6000E7321 /* pipe.swift in Sources */,
 				B2478580202A23610048B80D /* Relationship.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -761,7 +753,7 @@
 				);
 				INFOPLIST_FILE = "TeamGenFoundation/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emergencyavocado.TeamGenFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -789,7 +781,7 @@
 				);
 				INFOPLIST_FILE = "TeamGenFoundation/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emergencyavocado.TeamGenFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -811,7 +803,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = TeamGenFoundationTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emergencyavocado.TeamGenFoundationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -830,7 +822,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = TeamGenFoundationTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emergencyavocado.TeamGenFoundationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -958,7 +950,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "TeamGen/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emergencyavocado.TeamGen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -979,7 +971,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "TeamGen/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emergencyavocado.TeamGen;
 				PRODUCT_NAME = "$(TARGET_NAME)";

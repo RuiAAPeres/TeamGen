@@ -1,3 +1,11 @@
+import Overture
+
+infix operator >>>
+
+public func >>> <T, U, V>(f: @escaping (T) -> U, g: @escaping (U) -> V) -> ((T) -> V) {
+    return pipe(f, g)
+}
+
 precedencegroup PipePrecedence {
     associativity: left
     higherThan: AssignmentPrecedence
@@ -17,4 +25,3 @@ public func ?|> <T, U>(x: T?, f: (T) -> U) -> U? {
 public func ?|> <T, U>(x: T?, f: (T) -> U?) -> U? {
     return x.flatMap(f)
 }
-
