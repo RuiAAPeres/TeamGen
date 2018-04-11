@@ -4,7 +4,9 @@ import TinyConstraints
 
 final class GroupsScreenViewController: UIViewController {
     private var viewModel: GroupsViewModelProtocol!
-    private var tableView = UITableView.init(frame: .zero, style: .grouped)
+    private var tableView = UITableView(frame: .zero, style: .plain).configure { tableView in
+        tableView.tableFooterView = UIView()
+    }
     private var tableViewManager: TableViewManager<GroupCellViewModel>
 
     public init(viewModel: GroupsViewModelProtocol) {

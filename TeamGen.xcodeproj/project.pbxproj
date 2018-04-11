@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B203908E207E7A9D0030CABD /* AddGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203908D207E7A9D0030CABD /* AddGroupView.swift */; };
+		B2039090207E9C310030CABD /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203908F207E9C310030CABD /* SpinnerView.swift */; };
+		B2039095207EC98F0030CABD /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2039094207EC98F0030CABD /* UIKit+Extensions.swift */; };
 		B20873DD1FFD4FE7007DDA89 /* AppBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */; };
 		B216471D2021E6EC000E7321 /* TeamGenFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21647142021E6EC000E7321 /* TeamGenFoundation.framework */; };
 		B21647292021E6EC000E7321 /* TeamGenFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21647142021E6EC000E7321 /* TeamGenFoundation.framework */; };
@@ -99,6 +102,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B203908D207E7A9D0030CABD /* AddGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupView.swift; sourceTree = "<group>"; };
+		B203908F207E9C310030CABD /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		B2039094207EC98F0030CABD /* UIKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extensions.swift"; sourceTree = "<group>"; };
 		B20873DA1FFD47ED007DDA89 /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		B20873DC1FFD4FE7007DDA89 /* AppBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBuilder.swift; sourceTree = "<group>"; };
 		B21647142021E6EC000E7321 /* TeamGenFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TeamGenFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,6 +292,7 @@
 				B27DDD2F207A739500ABB4D9 /* ViewState.swift */,
 				B21647432021FBF6000E7321 /* Flow.swift */,
 				B21647442021FBF6000E7321 /* ViewModel+ViewLifecycle.swift */,
+				B2039094207EC98F0030CABD /* UIKit+Extensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -333,6 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				B27DDD3E207AA5F800ABB4D9 /* GroupDigestView.swift */,
+				B203908D207E7A9D0030CABD /* AddGroupView.swift */,
+				B203908F207E9C310030CABD /* SpinnerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -671,6 +680,7 @@
 				B21647562021FBF6000E7321 /* CoreError.swift in Sources */,
 				B281C3EB20642A1500A314F7 /* Generator.swift in Sources */,
 				B21CE8CE202206E800039988 /* GroupCellViewModel.swift in Sources */,
+				B2039095207EC98F0030CABD /* UIKit+Extensions.swift in Sources */,
 				B21647552021FBF6000E7321 /* ViewModel+ViewLifecycle.swift in Sources */,
 				B27DDD2E207A72E900ABB4D9 /* TableViewManager.swift in Sources */,
 				B21647532021FBF6000E7321 /* ReactiveCocoa+Extensions.swift in Sources */,
@@ -710,8 +720,10 @@
 				B27DDD2A207A6B2F00ABB4D9 /* GroupsScreen.swift in Sources */,
 				B27DDD3F207AA5F800ABB4D9 /* GroupDigestView.swift in Sources */,
 				B2DBC5561F9BD1D1000F4AF9 /* AppDelegate.swift in Sources */,
+				B203908E207E7A9D0030CABD /* AddGroupView.swift in Sources */,
 				B2EC51B51F9C155000783ACB /* GroupsScreenViewController.swift in Sources */,
 				B20873DD1FFD4FE7007DDA89 /* AppBuilder.swift in Sources */,
+				B2039090207E9C310030CABD /* SpinnerView.swift in Sources */,
 				B2EC51B41F9C155000783ACB /* GroupsScreenFlowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

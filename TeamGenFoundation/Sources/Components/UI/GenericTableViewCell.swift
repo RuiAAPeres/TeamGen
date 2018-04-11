@@ -25,22 +25,25 @@ public extension UITableView {
 }
 
 public final class GenericTableCell<CustomView>: UITableViewCell where CustomView: UIView {
-    @available(*, unavailable)
     
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
+    @available(*, unavailable)
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(customView: CustomView) {
+    @discardableResult
+    public func setup(customView: CustomView) -> GenericTableCell<CustomView>  {
         self.contentView.addSubview(customView)
         self.contentView.preservesSuperviewLayoutMargins = false
         self.contentView.layoutMargins = .zero
         
         self.setupConstraints(for: customView)
+        
+        return self
     }
     
     private func setupConstraints(for view: CustomView) {
