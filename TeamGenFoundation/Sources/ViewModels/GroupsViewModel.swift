@@ -6,23 +6,23 @@ public protocol GroupsViewModelProtocol: ViewLifeCycleObservable {
     var state: Property<GroupsViewModel.State> { get }
     var route: Signal<GroupsViewModel.Route, NoError> { get }
     var viewLifecycle: MutableProperty<ViewLifeCycle> { get }
-    var addGroupAction: SignalProducer<Void, NoError> { get }
+    var showAddGroup: SignalProducer<Void, NoError> { get }
 }
 
 public struct Dummy_GroupsViewModel: GroupsViewModelProtocol {
     public var state: Property<GroupsViewModel.State>
     public let route: Signal<GroupsViewModel.Route, NoError>
     public let viewLifecycle: MutableProperty<ViewLifeCycle>
-    public let addGroupAction: SignalProducer<Void, NoError>
+    public let showAddGroup: SignalProducer<Void, NoError>
 
     public init(state: Property<GroupsViewModel.State> = Property(value: .loading),
          route: Signal<GroupsViewModel.Route, NoError> = Signal.empty,
          viewLifecycle: MutableProperty<ViewLifeCycle> = MutableProperty(.unknown),
-         addGroupAction: SignalProducer<Void, NoError> = SignalProducer.empty) {
+         showAddGroup: SignalProducer<Void, NoError> = SignalProducer.empty) {
         self.state = state
         self.route = route
         self.viewLifecycle = viewLifecycle
-        self .addGroupAction = addGroupAction
+        self.showAddGroup = showAddGroup
     }
 }
 
@@ -30,7 +30,9 @@ public struct GroupsViewModel: GroupsViewModelProtocol {
     public let state: Property<State>
     public let route: Signal<Route, NoError>
     public let viewLifecycle: MutableProperty<ViewLifeCycle>
-    public let addGroupAction: SignalProducer<Void, NoError>
+    
+    // Routing mechanism
+    public let showAddGroup: SignalProducer<Void, NoError>
 
     public init(groupsRepository: GroupsRepositoryProtocol) {
 
@@ -42,7 +44,7 @@ public struct GroupsViewModel: GroupsViewModelProtocol {
 
         let (addGroupEvent, addGroupObserver) = Signal<Event, NoError>.pipe()
 
-        self.addGroupAction = SignalProducer<Void, NoError>.action {
+        self.showAddGroup = SignalProducer<Void, NoError>.action {
             let addGroupRelationship = Relantionship<Event, AddGroupViewModel.State>(addGroupObserver) { state in
                 switch state {
                 case let .groupCreated(group): return .saveGroup(group)

@@ -29,6 +29,7 @@ enum GroupsScreen {
                 .map(GroupDigestViewModel.init >>> GroupCellViewModel.group)
                 |> appendAddButton
                 |> ViewState.loaded
+            
         case .loading:
             return .loading
         default:

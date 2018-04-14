@@ -7,8 +7,10 @@ public struct AddGroupViewModel {
     public let route: Signal<Route, NoError>
     private let routeObserver: Signal<Route, NoError>.Observer
     public let viewLifecycle: MutableProperty<ViewLifeCycle>
+    public let addGroup: Action<Group, Void, NoError>
 
-    public init(groupsReposiotry: GroupsRepositoryProtocol) {
+    public init(groupsReposiotry: GroupsRepositoryProtocol,
+                sendGroup: @escaping (Group) -> Void) {
         let lifeCycle = MutableProperty<ViewLifeCycle>(.unknown)
         viewLifecycle = lifeCycle
         (route, routeObserver) = Signal<Route, NoError>.pipe()
@@ -18,6 +20,8 @@ public struct AddGroupViewModel {
                          feedbacks: [
                             AddGroupViewModel.add(.empty, using: groupsReposiotry)
             ])
+        
+        addGroup = Action(sendGroup)
     }
 }
 
@@ -25,14 +29,6 @@ public extension AddGroupViewModel {
     enum State: Equatable {
         case initial
         case groupCreated(Group)
-
-        public static func == (lhs: State, rhs: State) -> Bool {
-            switch(lhs, rhs) {
-            case (.initial, .initial): return true
-            case (let .groupCreated(lhsGroup), let .groupCreated(rhsGroup)): return lhsGroup == rhsGroup
-            default: return false
-            }
-        }
     }
 
     enum Event {

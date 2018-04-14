@@ -17,16 +17,11 @@ final class AddGroupView: UIView, ReusableView {
     private func setupSubViews(with viewModel: AddGroupViewModel) {
         let addButton = UIButton()
         addButton.setTitle(viewModel.title, for: .normal)
+
+        addSubview(addButton)
         
-        let content = UIStackView(arrangedSubviews: [addButton])
-        content.alignment = .center
-        content.axis = .horizontal
-        content.distribution = .fillProportionally
-        content.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(content)
-        
-        content.height(min: 100, priority: .defaultHigh, isActive: true)
-        content.edgesToSuperview(usingSafeArea: true)
+        addButton.centerInSuperview()
+        self.height(min: 100, priority: .defaultHigh, isActive: true)
     }
 }
 

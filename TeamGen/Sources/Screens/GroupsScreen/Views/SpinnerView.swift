@@ -17,17 +17,10 @@ final class SpinnerView: UIView, ReusableView {
     private func setupSubViews() {
         let spinner = UIActivityIndicatorView()
         spinner.activityIndicatorViewStyle = .gray
-        
         spinner.startAnimating()
+        addSubview(spinner)
         
-        let content = UIStackView(arrangedSubviews: [spinner])
-        content.alignment = .center
-        content.axis = .horizontal
-        content.distribution = .fillProportionally
-        content.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(content)
-        
-        content.height(min: 100, priority: .defaultHigh, isActive: true)
-        content.edgesToSuperview(usingSafeArea: true)
+        spinner.centerInSuperview()
+        self.height(min: 100, priority: .defaultHigh, isActive: true)
     }
 }

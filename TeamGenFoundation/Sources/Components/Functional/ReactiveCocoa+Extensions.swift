@@ -28,3 +28,12 @@ public extension SignalProducer {
         return map { _ in }
     }
 }
+
+public extension Action where Output == Void, Error == NoError {
+    public convenience init(_ execute: @escaping (Input) -> Void) {
+        self.init { input -> SignalProducer<Output, Error> in
+            execute(input)
+            return .empty
+        }
+    }
+}
